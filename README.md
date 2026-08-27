@@ -4,9 +4,7 @@ Functional MVP source code for the SC4025 Digital Product Management Starbucks
 group project.
 
 Research, product planning, design artefacts, the report, and presentation files
-belong in the team's
-[shared Google Drive](https://drive.google.com/drive/folders/11N0HGz20NhOL_8pGfok2di_DfiXejzLh).
-Do not duplicate them here.
+are maintained separately and are not duplicated here.
 
 ## Repository structure
 
