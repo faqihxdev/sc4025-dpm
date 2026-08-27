@@ -47,13 +47,21 @@ after the team agrees on the MVP and technology choice.
 
 ## Contributing
 
-- Branch: `<name>/<type>-<short-description>`
+- Branch: `<name>/<type>-<lowercase-kebab-description>`
 - PR title and commit subject: `<type>: <short description>`
 - Types: `feat`, `fix`, `refactor`, `docs`, `test`, `chore`
+- GitHub Actions blocks invalid branch names and PR titles. Commit-subject
+  findings are advisory so shared history does not need to be rewritten.
 - Keep each pull request focused on one reviewable outcome.
 - In the PR description, state the product decision or requirement addressed,
   evidence used, validation performed, and contribution-tracker entry updated.
 - Preserve shared history; do not rewrite pushed commits merely to rename them.
+
+Enable the repository's commit-message template after cloning:
+
+```text
+git config commit.template .gitmessage
+```
 
 Examples:
 
