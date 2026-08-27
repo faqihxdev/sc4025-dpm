@@ -1,49 +1,36 @@
 # sc4025-dpm
 
-SC4025 Digital Product Management group project for **Starbucks**. This
-repository holds the evidence, product blueprint, design work, and functional
-MVP used for the final report and presentation.
+Functional MVP source code for the SC4025 Digital Product Management Starbucks
+group project.
 
-## Course outcome
-
-The project should move from a supported customer problem to a functional MVP.
-Keep the four course pillars connected:
-
-1. **Discovery & Strategy** - problem framing, user insights, roadmap, and KPIs.
-2. **Execution & Design** - PRD, user stories, MVP scope, flows, and wireframes.
-3. **Tech Stack** - a working prototype that validates the design choices.
-4. **Go-To-Market & Governance** - GTM, pricing, risks, and mitigations.
-
-The final submission must also include a specific individual-contribution
-breakdown, the GitHub URL, and a literature review supporting product decisions.
-Commit history should make each member's work visible.
+Research, product planning, design artefacts, the report, and presentation files
+belong in the team's
+[shared Google Drive](https://drive.google.com/drive/folders/11N0HGz20NhOL_8pGfok2di_DfiXejzLh).
+Do not duplicate them here.
 
 ## Repository structure
 
 ```text
 .
-|-- AGENTS.md                 # Instructions for coding/research agents
-|-- app/                      # Functional MVP and setup instructions
-|-- docs/                     # Product blueprint and report-ready material
-|   `-- contributions.md      # Required individual contribution tracker
-|-- research/                 # User, market, competitor, and literature evidence
-|-- tests/                    # Automated and manual validation of key flows
+|-- .github/                  # Pull-request template and naming checks
+|-- AGENTS.md                 # Instructions for coding agents
+|-- app/                      # Functional MVP source and setup instructions
+|-- tests/                    # Automated and manual software validation
 `-- README.md
 ```
 
 The structure is intentionally stack-neutral. Add framework-specific files only
 after the team agrees on the MVP and technology choice.
 
-## Working agreement
+## Development scope
 
-- Back every important product decision with user evidence, academic literature,
-  industry research, or clearly labelled assumptions.
-- Do not invent interview results, metrics, citations, or Starbucks capabilities.
-- Record specific outputs in `docs/contributions.md`; avoid vague entries such as
-  "research" or "coding."
-- Keep secrets and personal participant data out of Git.
-- Make the prepared demo reliable, while keeping the MVP behaviour honest and
-  reproducible.
+- Implement the agreed MVP and keep the main user flow demonstrable.
+- Document installation, configuration, test, build, and demo commands in
+  `app/README.md`.
+- Add proportionate tests for business rules and critical flows.
+- Keep secrets, generated output, course documents, and participant data out of
+  Git.
+- Use example environment-variable names instead of committing credentials.
 
 ## Contributing
 
@@ -53,8 +40,7 @@ after the team agrees on the MVP and technology choice.
 - GitHub Actions blocks invalid branch names and PR titles. Commit-subject
   findings are advisory so shared history does not need to be rewritten.
 - Keep each pull request focused on one reviewable outcome.
-- In the PR description, state the product decision or requirement addressed,
-  evidence used, validation performed, and contribution-tracker entry updated.
+- In the PR description, explain what changed, why, and how it was validated.
 - Preserve shared history; do not rewrite pushed commits merely to rename them.
 
 Enable the repository's commit-message template after cloning:
@@ -66,18 +52,14 @@ git config commit.template .gitmessage
 Examples:
 
 ```text
-faqih/docs-rewards-research
+faqih/docs-local-setup
 siwen/feat-group-order-flow
-docs: compare Starbucks rewards redemption flows
+docs: document local development setup
 feat: add separate payment to group order
 ```
 
-## Starting the project
+## After cloning
 
-1. Audit the current Starbucks Singapore customer experience.
-2. Put source-backed findings in `research/`.
-3. Define the selected problem, target user, value proposition, and MVP in
-   `docs/`.
-4. Record each member's concrete outputs in `docs/contributions.md`.
-5. Add the chosen stack and run instructions to `app/README.md` before
-   implementation begins.
+1. Run `git config commit.template .gitmessage`.
+2. Read `app/README.md` for the current stack and setup instructions.
+3. Create a correctly named branch before making a focused change.

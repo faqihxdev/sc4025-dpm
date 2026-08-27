@@ -2,49 +2,34 @@
 
 ## Read first
 
-Read the root `README.md` before making changes. It defines the course outcome,
-repository boundaries, evidence standard, and Git workflow.
+Read the root `README.md` and `app/README.md` before making changes. They define
+the repository boundary, development workflow, and current stack.
 
 ## Project context
 
-This is the SC4025 Starbucks product-blueprint project. The repository must tell
-one traceable story:
-
-```text
-evidence -> validated problem -> product decision -> design -> functional MVP -> validation
-```
-
-Do not treat an attractive feature idea as validated merely because it is easy to
-build. Mark assumptions explicitly and preserve contrary evidence.
+This repository contains only the functional MVP implementation for the SC4025
+Starbucks project. Research, product planning, design artefacts, contribution
+tracking, and submission files live in the team's shared Google Drive. Do not
+copy those materials into the repository.
 
 ## Repository boundaries
 
-- `research/`: source-backed user, market, competitor, and literature findings.
-- `docs/`: problem framing, PRD, roadmap, metrics, design, GTM, governance, and
-  report-ready material.
-- `app/`: only the functional MVP and the files needed to run it.
-- `tests/`: automated tests, manual test cases, and usability-validation notes.
+- `app/`: functional MVP source code and the files needed to run it.
+- `tests/`: automated tests and technical manual test cases.
+- `.github/`: shared pull-request and repository-policy automation.
 
-Keep generated files, temporary exports, credentials, and identifiable research
+Keep generated output, temporary exports, credentials, course documents, and
 participant data out of the repository.
-
-## Evidence and writing
-
-- Never fabricate interviews, survey responses, citations, statistics, app
-  behaviour, or test results.
-- Record the source URL or document, access date, relevant finding, and product
-  implication for external evidence.
-- Distinguish observed facts from interpretation and from untested hypotheses.
-- Use concise, report-ready language and keep terminology consistent.
-- Update `docs/contributions.md` when a task produces a meaningful deliverable.
 
 ## Implementation
 
 - Implement only the agreed MVP scope and keep the main user flow demonstrable.
-- Match the current product documentation and flag contradictions before coding.
+- Treat the shared Drive's agreed requirements and designs as inputs. Flag
+  contradictions instead of silently choosing one interpretation.
 - Add proportionate tests for business rules and critical flows.
 - Document setup, configuration, test, and demo commands in `app/README.md`.
 - Do not commit secrets; provide example environment-variable names instead.
+- Do not claim a test passed unless it was actually run.
 
 ## Git workflow
 
