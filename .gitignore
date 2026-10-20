@@ -2,6 +2,8 @@
 .env
 .env.*
 !.env.example
+.dev.vars*
+.wrangler/
 
 # Dependencies
 node_modules/
@@ -45,6 +47,10 @@ coverage/
 htmlcov/
 .pytest_cache/
 .nyc_output/
+playwright-report/
+test-results/
+test-results-feedback-*/
+.performance-audit/
 
 # Misc
 *.local

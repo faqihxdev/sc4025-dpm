@@ -1,0 +1,1000 @@
+{
+  "title": "Starbucks reference photos and label-removal illustrations for the SC4025 educational prototype",
+  "preparedOn": "2026-10-02T03:11:43.905Z",
+  "method": "Whole-image proportional resize and WebP conversion. Five Singapore reference photos were edited with built-in image generation to remove nutrition badges; other photos are official regional references. No photo supplies recipe or nutrition data.",
+  "nutritionNote": "Displayed photos have no Nutri-Grade overlays. Nutrition is separately sourced from Singapore product-page tables; regional photos and illustrative edits are not nutrition or serving-size evidence.",
+  "attribution": "Starbucks regional websites. Underlying photographs and logo belong to their respective rights holders.",
+  "licence": "Unknown. Public availability does not establish reuse permission. Prepared for an educational course prototype.",
+  "photographs": [
+    {
+      "id": "iced-americano",
+      "productName": "Iced Americano",
+      "productSource": "https://www.starbucks.com/menu/product/406/iced",
+      "observedUrl": "https://cloudassets.starbucks.com/is/image/sbuxcorp/IcedCaffeAmericano?wid=560&hei=560&qlt=85",
+      "discoverySource": "https://www.starbucks.com/apiproxy/v1/ordering/menu",
+      "observedOn": "2026-10-02",
+      "downloadedOn": "2026-10-02T03:11:24.944Z",
+      "source": {
+        "width": 560,
+        "height": 560,
+        "bytes": 13040,
+        "sha256": "5d98e1d0aa21856a66679129abba8342da884369328c501b5270025315458df6",
+        "format": "jpeg"
+      },
+      "originalPhotoSha256": "5d98e1d0aa21856a66679129abba8342da884369328c501b5270025315458df6",
+      "identityStatus": "official-regional-product-reference",
+      "note": "Official regional product reference. Appearance does not establish an identical Singapore recipe, serving size, nutrition or current stock.",
+      "visualQa": "Prepared whole-image photo visually reviewed 2026-10-02 for this source hash: drink identity, cup fit, proportions, background compatibility and absence of nutrition overlays checked.",
+      "outputs": [
+        {
+          "path": "/images/iced-americano.webp",
+          "width": 560,
+          "height": 560,
+          "bytes": 6258,
+          "sha256": "a7376abc47223390c19120b6e3ffad8fb141ec1d5a6b33203abebc5a46587e8a",
+          "format": "webp"
+        },
+        {
+          "path": "/images/iced-americano-small.webp",
+          "width": 240,
+          "height": 240,
+          "bytes": 1578,
+          "sha256": "0bfd592711d5239045d123f86672254178e36af684d0b01ce8ba629f2cc4bfbb",
+          "format": "webp"
+        }
+      ]
+    },
+    {
+      "id": "americano",
+      "productName": "Caffè Americano",
+      "productSource": "https://www.starbucks.com/menu/product/406/hot",
+      "observedUrl": "https://cloudassets.starbucks.com/is/image/sbuxcorp/CaffeAmericano?wid=560&hei=560&qlt=85",
+      "discoverySource": "https://www.starbucks.com/apiproxy/v1/ordering/menu",
+      "observedOn": "2026-10-02",
+      "downloadedOn": "2026-10-02T03:11:25.206Z",
+      "source": {
+        "width": 560,
+        "height": 560,
+        "bytes": 10790,
+        "sha256": "6c6fa5d7a3ecab0e658b050564ae3c8ece5c9fbe01fdc7bdc91fbdf2aa35bc3b",
+        "format": "jpeg"
+      },
+      "originalPhotoSha256": "6c6fa5d7a3ecab0e658b050564ae3c8ece5c9fbe01fdc7bdc91fbdf2aa35bc3b",
+      "identityStatus": "official-regional-product-reference",
+      "note": "Official regional product reference. Appearance does not establish an identical Singapore recipe, serving size, nutrition or current stock.",
+      "visualQa": "Prepared whole-image photo visually reviewed 2026-10-02 for this source hash: drink identity, cup fit, proportions, background compatibility and absence of nutrition overlays checked.",
+      "outputs": [
+        {
+          "path": "/images/americano.webp",
+          "width": 560,
+          "height": 560,
+          "bytes": 4932,
+          "sha256": "93e6a21daa4a9e452670f27ac0eada3779fb987461badc7f40d6f47fd1161237",
+          "format": "webp"
+        },
+        {
+          "path": "/images/americano-small.webp",
+          "width": 240,
+          "height": 240,
+          "bytes": 1412,
+          "sha256": "50a6655c2590ef749ddd91047d262da0dc28783fe6cf3069afde8be4d6151a34",
+          "format": "webp"
+        }
+      ]
+    },
+    {
+      "id": "iced-latte",
+      "productName": "Iced Caffè Latte",
+      "productSource": "https://www.starbucks.com/menu/product/407/iced",
+      "observedUrl": "https://cloudassets.starbucks.com/is/image/sbuxcorp/IcedCaffeLatte?wid=560&hei=560&qlt=85",
+      "discoverySource": "https://www.starbucks.com/apiproxy/v1/ordering/menu",
+      "observedOn": "2026-10-02",
+      "downloadedOn": "2026-10-02T03:11:25.466Z",
+      "source": {
+        "width": 560,
+        "height": 560,
+        "bytes": 11717,
+        "sha256": "0a48e02798286841339af38debbf29a65d1ba262b04ab39232ccf0198877f95b",
+        "format": "jpeg"
+      },
+      "originalPhotoSha256": "0a48e02798286841339af38debbf29a65d1ba262b04ab39232ccf0198877f95b",
+      "identityStatus": "official-regional-product-reference",
+      "note": "Official regional product reference. Appearance does not establish an identical Singapore recipe, serving size, nutrition or current stock.",
+      "visualQa": "Prepared whole-image photo visually reviewed 2026-10-02 for this source hash: drink identity, cup fit, proportions, background compatibility and absence of nutrition overlays checked.",
+      "outputs": [
+        {
+          "path": "/images/iced-latte.webp",
+          "width": 560,
+          "height": 560,
+          "bytes": 5028,
+          "sha256": "280ce02f3823534db169be399c3894882f530469561fab94d0807ce6e4707162",
+          "format": "webp"
+        },
+        {
+          "path": "/images/iced-latte-small.webp",
+          "width": 240,
+          "height": 240,
+          "bytes": 1672,
+          "sha256": "6d854ff1cbb8628953e8f240fae97ee37bd3c1c7e753c2fedcde3d232b71c4dc",
+          "format": "webp"
+        }
+      ]
+    },
+    {
+      "id": "latte",
+      "productName": "Caffè Latte",
+      "productSource": "https://www.starbucks.com/menu/product/407/hot",
+      "observedUrl": "https://cloudassets.starbucks.com/is/image/sbuxcorp/CaffeLatte?wid=560&hei=560&qlt=85",
+      "discoverySource": "https://www.starbucks.com/apiproxy/v1/ordering/menu",
+      "observedOn": "2026-10-02",
+      "downloadedOn": "2026-10-02T03:11:25.892Z",
+      "source": {
+        "width": 560,
+        "height": 560,
+        "bytes": 11177,
+        "sha256": "bfb2fd257721fe617e658c4c315a589808ca5433569a2c9f58225e2224fb3fd6",
+        "format": "jpeg"
+      },
+      "originalPhotoSha256": "bfb2fd257721fe617e658c4c315a589808ca5433569a2c9f58225e2224fb3fd6",
+      "identityStatus": "official-regional-product-reference",
+      "note": "Official regional product reference. Appearance does not establish an identical Singapore recipe, serving size, nutrition or current stock.",
+      "visualQa": "Prepared whole-image photo visually reviewed 2026-10-02 for this source hash: drink identity, cup fit, proportions, background compatibility and absence of nutrition overlays checked.",
+      "outputs": [
+        {
+          "path": "/images/latte.webp",
+          "width": 560,
+          "height": 560,
+          "bytes": 4340,
+          "sha256": "648eca07072373531d9a45c9d2570e27f954a0e741bf43f30a553aaeec48af4f",
+          "format": "webp"
+        },
+        {
+          "path": "/images/latte-small.webp",
+          "width": 240,
+          "height": 240,
+          "bytes": 1286,
+          "sha256": "b81d0f4fad93d6b45996b6bc3860db4ba61fb3a17fe22ced83868140a2b2f14c",
+          "format": "webp"
+        }
+      ]
+    },
+    {
+      "id": "oat-latte",
+      "productName": "Oatmilk Latte",
+      "productSource": "https://www.starbucks.com.sg/oatmilk-latte",
+      "observedUrl": "https://www.starbucks.com.sg/media/nutri-grade/website/website%20oatmilk%20latte%20b2.jpg",
+      "observedOn": "2026-10-02",
+      "downloadedOn": "2026-10-02T03:11:27.652Z",
+      "source": {
+        "width": 1254,
+        "height": 1254,
+        "bytes": 1016152,
+        "sha256": "8208986e0b354d5236ee83709248deb4522f0537ed79218ebc7c8f5357032027",
+        "format": "png"
+      },
+      "originalPhotoSha256": "01d4fef1b18a7394e7fec1fcbf0a0ed0a880447aa5a5fa0d6ee75101d47762c8",
+      "edit": {
+        "file": "assets/image-edits/oat-latte.png",
+        "method": "Built-in image_gen precise-object-edit",
+        "prompt": "Use case: precise-object-edit. This is the edit target for an educational drink-finder prototype. Remove ONLY the white Nutri-Grade nutrition badge to the left of the drink, including its letters, percentage and border. Fill that small badge area with the existing matching dark-green backdrop. Keep the entire drink, cup, handle, logo if present, ice, foam, shadows, camera angle, composition, lighting and colours unchanged. Keep the same square framing and drink position. Do not restyle or redesign anything, do not add text. The cup itself must remain unchanged."
+      },
+      "identityStatus": "label-removal-illustration",
+      "note": "Built-in image editing removed nutrition badges from the Singapore reference. An illustrative edit, not an unmodified official photo or nutrition evidence.",
+      "visualQa": "Prepared whole-image photo visually reviewed 2026-10-02 for this source hash: drink identity, cup fit, proportions, background compatibility and absence of nutrition overlays checked.",
+      "outputs": [
+        {
+          "path": "/images/oat-latte.webp",
+          "width": 560,
+          "height": 560,
+          "bytes": 4902,
+          "sha256": "0a40446ec421610e2734669a2d1df4be259f389918421c6382dc24fe4f1fb104",
+          "format": "webp"
+        },
+        {
+          "path": "/images/oat-latte-small.webp",
+          "width": 240,
+          "height": 240,
+          "bytes": 1538,
+          "sha256": "74c35e9b400680af83688b3488649d07255515dc5e410ad7ae879a1727f09581",
+          "format": "webp"
+        }
+      ]
+    },
+    {
+      "id": "vanilla-oat-iced-latte",
+      "productName": "Vanilla Oatmilk Iced Shaken Latte (Less Sweet)",
+      "productSource": "https://www.starbucks.com.sg/menu/beverages/espresso-beverages/vanilla-oatmilk-iced-shaken-latte-less-sweet",
+      "observedUrl": "https://www.starbucks.com.sg/media/2025/winter/site%20salted%20caramel%20isl%20w%20NG%20.jpg",
+      "observedOn": "2026-10-02",
+      "downloadedOn": "2026-10-02T03:11:28.888Z",
+      "source": {
+        "width": 1254,
+        "height": 1254,
+        "bytes": 1215013,
+        "sha256": "91dc2f303db22d2be4880755a9f345530b39c39fa15591b6c347b1129c11b548",
+        "format": "png"
+      },
+      "originalPhotoSha256": "d9342c6e5f23354490f5662e36b7a02ace288b4793d6819d9d57c17adcfea12e",
+      "edit": {
+        "file": "assets/image-edits/vanilla-oat-iced-latte.png",
+        "method": "Built-in image_gen precise-object-edit",
+        "prompt": "Use case: precise-object-edit. This is the edit target for an educational drink-finder prototype. Remove ONLY the white Nutri-Grade nutrition badge to the left of the drink, including its letters, percentage and border. Fill that small badge area with the existing matching dark-green backdrop. Keep the entire drink, cup, handle, logo if present, ice, foam, shadows, camera angle, composition, lighting and colours unchanged. Keep the same square framing and drink position. Do not restyle or redesign anything, do not add text. The cup itself must remain unchanged."
+      },
+      "identityStatus": "label-removal-illustration",
+      "note": "Built-in image editing removed nutrition badges from the Singapore reference. An illustrative edit, not an unmodified official photo or nutrition evidence. The vanilla and salted-caramel pages share this source; it is a shared iced-shaken-latte reference, not exact-flavour proof.",
+      "visualQa": "Prepared whole-image photo visually reviewed 2026-10-02 for this source hash: drink identity, cup fit, proportions, background compatibility and absence of nutrition overlays checked.",
+      "outputs": [
+        {
+          "path": "/images/vanilla-oat-iced-latte.webp",
+          "width": 560,
+          "height": 560,
+          "bytes": 8782,
+          "sha256": "e2d53d9fc3584fc5e088651fe282d38505161f62a9436b41dbe27b1e35cc0304",
+          "format": "webp"
+        },
+        {
+          "path": "/images/vanilla-oat-iced-latte-small.webp",
+          "width": 240,
+          "height": 240,
+          "bytes": 2694,
+          "sha256": "3c0f2d653daf232e5f1f9d0ad8572f5d2ef9549398be356e1cfedf8d328e78dd",
+          "format": "webp"
+        }
+      ]
+    },
+    {
+      "id": "black-tea-lemonade",
+      "productName": "Iced Shaken Black Tea Lemonade",
+      "productSource": "https://www.starbucks.com/menu/product/458/iced",
+      "observedUrl": "https://cloudassets.starbucks.com/is/image/sbuxcorp/IcedBlackTeaLemonade?wid=560&hei=560&qlt=85",
+      "discoverySource": "https://www.starbucks.com/apiproxy/v1/ordering/menu",
+      "observedOn": "2026-10-02",
+      "downloadedOn": "2026-10-02T03:11:29.160Z",
+      "source": {
+        "width": 560,
+        "height": 560,
+        "bytes": 12472,
+        "sha256": "50bb04664fdb7c2fb7df912e9859cf99dba51544b1d743579f17f02488a5521b",
+        "format": "jpeg"
+      },
+      "originalPhotoSha256": "50bb04664fdb7c2fb7df912e9859cf99dba51544b1d743579f17f02488a5521b",
+      "identityStatus": "official-regional-product-reference",
+      "note": "Official regional product reference. Appearance does not establish an identical Singapore recipe, serving size, nutrition or current stock.",
+      "visualQa": "Prepared whole-image photo visually reviewed 2026-10-02 for this source hash: drink identity, cup fit, proportions, background compatibility and absence of nutrition overlays checked.",
+      "outputs": [
+        {
+          "path": "/images/black-tea-lemonade.webp",
+          "width": 560,
+          "height": 560,
+          "bytes": 5490,
+          "sha256": "eb2ed8b018f6c88e84cb65c3359c3f5db4e5873e362d1eb1df5a0900d849b150",
+          "format": "webp"
+        },
+        {
+          "path": "/images/black-tea-lemonade-small.webp",
+          "width": 240,
+          "height": 240,
+          "bytes": 1640,
+          "sha256": "913d435ecb65309363f1b26d7ef4fd8482b6d7b77ccb390e272016b534ed80aa",
+          "format": "webp"
+        }
+      ]
+    },
+    {
+      "id": "strawberry-acai-lemonade",
+      "productName": "Strawberry Açai with Lemonade",
+      "productSource": "https://www.starbucks.com/menu/product/2122677/iced",
+      "observedUrl": "https://cloudassets.starbucks.com/is/image/sbuxcorp/StrawberryAcaiLemonadeRefreshers?wid=560&hei=560&qlt=85",
+      "discoverySource": "https://www.starbucks.com/apiproxy/v1/ordering/menu",
+      "observedOn": "2026-10-02",
+      "downloadedOn": "2026-10-02T03:11:29.447Z",
+      "source": {
+        "width": 560,
+        "height": 560,
+        "bytes": 14109,
+        "sha256": "42e428f968ee9e8ac1a5e0eee093625362773fe8ea5e5e73bf76ea207a8a69b9",
+        "format": "jpeg"
+      },
+      "originalPhotoSha256": "42e428f968ee9e8ac1a5e0eee093625362773fe8ea5e5e73bf76ea207a8a69b9",
+      "identityStatus": "official-regional-product-reference",
+      "note": "Official regional product reference. Appearance does not establish an identical Singapore recipe, serving size, nutrition or current stock.",
+      "visualQa": "Prepared whole-image photo visually reviewed 2026-10-02 for this source hash: drink identity, cup fit, proportions, background compatibility and absence of nutrition overlays checked.",
+      "outputs": [
+        {
+          "path": "/images/strawberry-acai-lemonade.webp",
+          "width": 560,
+          "height": 560,
+          "bytes": 6566,
+          "sha256": "7689ad0c1a20841dccba9ad611922fa665930b118f75f7b91e422b2d269323a4",
+          "format": "webp"
+        },
+        {
+          "path": "/images/strawberry-acai-lemonade-small.webp",
+          "width": 240,
+          "height": 240,
+          "bytes": 1964,
+          "sha256": "7f704daeffa8a1af3b8215bbb101fd0c7d264eb2bd707d703f40821db16826aa",
+          "format": "webp"
+        }
+      ]
+    },
+    {
+      "id": "iced-matcha-latte",
+      "productName": "Iced Matcha Latte",
+      "productSource": "https://www.starbucks.com/menu/product/468/iced",
+      "observedUrl": "https://cloudassets.starbucks.com/is/image/sbuxcorp/IcedMatchaTeaLatte?wid=560&hei=560&qlt=85",
+      "discoverySource": "https://www.starbucks.com/apiproxy/v1/ordering/menu",
+      "observedOn": "2026-10-02",
+      "downloadedOn": "2026-10-02T03:11:29.831Z",
+      "source": {
+        "width": 560,
+        "height": 560,
+        "bytes": 11660,
+        "sha256": "1abeabce86c6349e9c7be39148a85ce8acd69c9e19c63301272e065f22ca1953",
+        "format": "jpeg"
+      },
+      "originalPhotoSha256": "1abeabce86c6349e9c7be39148a85ce8acd69c9e19c63301272e065f22ca1953",
+      "identityStatus": "official-regional-product-reference",
+      "note": "Official regional product reference. Appearance does not establish an identical Singapore recipe, serving size, nutrition or current stock.",
+      "visualQa": "Prepared whole-image photo visually reviewed 2026-10-02 for this source hash: drink identity, cup fit, proportions, background compatibility and absence of nutrition overlays checked.",
+      "outputs": [
+        {
+          "path": "/images/iced-matcha-latte.webp",
+          "width": 560,
+          "height": 560,
+          "bytes": 4774,
+          "sha256": "2b27060aa557cbc269a5c730894ce8962bf06e2c7a676be91a84c5a77a206446",
+          "format": "webp"
+        },
+        {
+          "path": "/images/iced-matcha-latte-small.webp",
+          "width": 240,
+          "height": 240,
+          "bytes": 1502,
+          "sha256": "4a094b201b9c5901532e2d5caad7441e56f9ca9dd5b63e83074598fe49e6a098",
+          "format": "webp"
+        }
+      ]
+    },
+    {
+      "id": "hot-chocolate",
+      "productName": "Signature Hot Chocolate",
+      "productSource": "https://www.starbucks.com/menu/product/471/hot",
+      "observedUrl": "https://cloudassets.starbucks.com/is/image/sbuxcorp/SBX20190617_SignatureHotChocolate?wid=560&hei=560&qlt=85",
+      "discoverySource": "https://www.starbucks.com/apiproxy/v1/ordering/menu",
+      "observedOn": "2026-10-02",
+      "downloadedOn": "2026-10-02T03:11:30.106Z",
+      "source": {
+        "width": 560,
+        "height": 560,
+        "bytes": 13139,
+        "sha256": "50fac7cb2e5da960eedeeb96a4f28bc19cba699b15d4897e48f15947b97d9eec",
+        "format": "jpeg"
+      },
+      "originalPhotoSha256": "50fac7cb2e5da960eedeeb96a4f28bc19cba699b15d4897e48f15947b97d9eec",
+      "identityStatus": "official-regional-product-reference",
+      "note": "Official regional product reference. Appearance does not establish an identical Singapore recipe, serving size, nutrition or current stock.",
+      "visualQa": "Prepared whole-image photo visually reviewed 2026-10-02 for this source hash: drink identity, cup fit, proportions, background compatibility and absence of nutrition overlays checked.",
+      "outputs": [
+        {
+          "path": "/images/hot-chocolate.webp",
+          "width": 560,
+          "height": 560,
+          "bytes": 5638,
+          "sha256": "6607ef09f7432f10f9a7234925c0a1bf51b2bcac6e73095e45fefa79267bdd11",
+          "format": "webp"
+        },
+        {
+          "path": "/images/hot-chocolate-small.webp",
+          "width": 240,
+          "height": 240,
+          "bytes": 1832,
+          "sha256": "8516b8aa07ed986d9d4d0ebe5ec798735aee2a0f03492d7425c11be2b3d2af0f",
+          "format": "webp"
+        }
+      ]
+    },
+    {
+      "id": "chamomile-tea",
+      "productName": "Chamomile Tea",
+      "productSource": "https://www.starbucks.com.sg/menu/beverages/teavana-tea/chamomile-tea",
+      "observedUrl": "https://www.starbucks.com.sg/media/nutri-grade/website/website%20brewed%20chamomile%20tea%20a0.jpg",
+      "observedOn": "2026-10-02",
+      "downloadedOn": "2026-10-02T03:11:31.100Z",
+      "source": {
+        "width": 1254,
+        "height": 1254,
+        "bytes": 1054396,
+        "sha256": "9e0f79d95f80b37ef6dadf1231885947adbe92363ab3a2721d1267a29a0d0f8e",
+        "format": "png"
+      },
+      "originalPhotoSha256": "44a506390ead51680fc16db94e7a567ecacafa3070e0a9985e47f1e7ab5578a6",
+      "edit": {
+        "file": "assets/image-edits/chamomile-tea.png",
+        "method": "Built-in image_gen precise-object-edit",
+        "prompt": "Use case: precise-object-edit. Edit this product photograph for an educational prototype. Remove ONLY the white Nutri-Grade nutrition badge left of the drink and the red 'No added sugar' badge overlapping the lower right. Fill those badge areas with matching existing dark-green background and continue the existing glass edge where needed. Keep the drink, transparent glass mug, handle, liquid colour, reflections, shadows, camera angle, scale and composition unchanged. Same square framing. No new elements or text. Do not restyle or change the cup."
+      },
+      "identityStatus": "label-removal-illustration",
+      "note": "Built-in image editing removed nutrition badges from the Singapore reference. An illustrative edit, not an unmodified official photo or nutrition evidence.",
+      "visualQa": "Prepared whole-image photo visually reviewed 2026-10-02 for this source hash: drink identity, cup fit, proportions, background compatibility and absence of nutrition overlays checked.",
+      "outputs": [
+        {
+          "path": "/images/chamomile-tea.webp",
+          "width": 560,
+          "height": 560,
+          "bytes": 5582,
+          "sha256": "38cedbe85e090dfd18f3883cc629989748b3987815cded15590202e820fd0238",
+          "format": "webp"
+        },
+        {
+          "path": "/images/chamomile-tea-small.webp",
+          "width": 240,
+          "height": 240,
+          "bytes": 1708,
+          "sha256": "deffded75590ae3fd5242aa76ddf71fe261d8ca1b33c714ecf0bfb1679b0ff43",
+          "format": "webp"
+        }
+      ]
+    },
+    {
+      "id": "pistachio-oat-matcha",
+      "productName": "Iced Pistachio Oatmilk Matcha Latte",
+      "productSource": "https://www.starbucks.com.sg/menu/coffee-products/teavana-teas/iced-pistachio-oatmilk-matcha-latte",
+      "observedUrl": "https://www.starbucks.com.sg/media/2025/Autumn/Drinks/Iced-Pistachio-Oatmilk-Matcha-Latte-Green_750x750.jpg",
+      "observedOn": "2026-10-02",
+      "downloadedOn": "2026-10-02T03:11:32.084Z",
+      "source": {
+        "width": 1254,
+        "height": 1254,
+        "bytes": 1092369,
+        "sha256": "e4de5e1c8411c27f989876b1d5151b643e4df96b1d147018bffa00382844b46f",
+        "format": "png"
+      },
+      "originalPhotoSha256": "584bbce4693ed7dbe0ddbe35b34745149d1b122e5f0c8902f66585637cbee637",
+      "edit": {
+        "file": "assets/image-edits/pistachio-oat-matcha.png",
+        "method": "Built-in image_gen precise-object-edit",
+        "prompt": "Use case: precise-object-edit. This is the edit target for an educational drink-finder prototype. Remove ONLY the white Nutri-Grade nutrition badge to the left of the drink, including its letters, percentage and border. Fill that small badge area with the existing matching dark-green backdrop. Keep the entire drink, cup, handle, logo if present, ice, foam, shadows, camera angle, composition, lighting and colours unchanged. Keep the same square framing and drink position. Do not restyle or redesign anything, do not add text. The cup itself must remain unchanged."
+      },
+      "identityStatus": "label-removal-illustration",
+      "note": "Built-in image editing removed nutrition badges from the Singapore reference. An illustrative edit, not an unmodified official photo or nutrition evidence.",
+      "visualQa": "Prepared whole-image photo visually reviewed 2026-10-02 for this source hash: drink identity, cup fit, proportions, background compatibility and absence of nutrition overlays checked.",
+      "outputs": [
+        {
+          "path": "/images/pistachio-oat-matcha.webp",
+          "width": 560,
+          "height": 560,
+          "bytes": 6888,
+          "sha256": "2e64bd4d88d1eef6c7162b8e2ea7fdb134946e052c816073fefc36ca9c9258ca",
+          "format": "webp"
+        },
+        {
+          "path": "/images/pistachio-oat-matcha-small.webp",
+          "width": 240,
+          "height": 240,
+          "bytes": 2238,
+          "sha256": "b59aa3d69b47090b0993958641e1cff88959ec18df9c9947e99dbea780a7248d",
+          "format": "webp"
+        }
+      ]
+    },
+    {
+      "id": "cold-brew",
+      "productName": "Cold Brew",
+      "productSource": "https://www.starbucks.com/menu/product/2121255/iced",
+      "observedUrl": "https://cloudassets.starbucks.com/is/image/sbuxcorp/ColdBrew?wid=560&hei=560&qlt=85",
+      "discoverySource": "https://www.starbucks.com/apiproxy/v1/ordering/menu",
+      "observedOn": "2026-10-02",
+      "downloadedOn": "2026-10-02T03:11:32.356Z",
+      "source": {
+        "width": 560,
+        "height": 560,
+        "bytes": 12585,
+        "sha256": "143c8951940eb938a499d9690dd0f769f83fa81f5e532d12b4a7048dd7bd6f79",
+        "format": "jpeg"
+      },
+      "originalPhotoSha256": "143c8951940eb938a499d9690dd0f769f83fa81f5e532d12b4a7048dd7bd6f79",
+      "identityStatus": "official-regional-product-reference",
+      "note": "Official regional product reference. Appearance does not establish an identical Singapore recipe, serving size, nutrition or current stock.",
+      "visualQa": "Prepared whole-image photo visually reviewed 2026-10-02 for this source hash: drink identity, cup fit, proportions, background compatibility and absence of nutrition overlays checked.",
+      "outputs": [
+        {
+          "path": "/images/cold-brew.webp",
+          "width": 560,
+          "height": 560,
+          "bytes": 6076,
+          "sha256": "22415e9130b854a640387c5e2a3f1b9aed358a2cd0f777b7ae0616e7b657cbbe",
+          "format": "webp"
+        },
+        {
+          "path": "/images/cold-brew-small.webp",
+          "width": 240,
+          "height": 240,
+          "bytes": 1702,
+          "sha256": "61479ad7f3e0efead380ba359edc5dd9b65b07cdf854b1a78aaa8c45e5b08f4f",
+          "format": "webp"
+        }
+      ]
+    },
+    {
+      "id": "vanilla-sweet-cream-cold-brew",
+      "productName": "Vanilla Sweet Cream Cold Brew",
+      "productSource": "https://www.starbucks.com/menu/product/2121859/iced",
+      "observedUrl": "https://cloudassets.starbucks.com/is/image/sbuxcorp/SBX20190607_VanillaSweetCreamColdBrew?wid=560&hei=560&qlt=85",
+      "discoverySource": "https://www.starbucks.com/apiproxy/v1/ordering/menu",
+      "observedOn": "2026-10-02",
+      "downloadedOn": "2026-10-02T03:11:32.630Z",
+      "source": {
+        "width": 560,
+        "height": 560,
+        "bytes": 12688,
+        "sha256": "4d8073f6052a69ea73e2f355c18c3ec33b7a42e7b8817a49cfdf0d3707616c32",
+        "format": "jpeg"
+      },
+      "originalPhotoSha256": "4d8073f6052a69ea73e2f355c18c3ec33b7a42e7b8817a49cfdf0d3707616c32",
+      "identityStatus": "official-regional-product-reference",
+      "note": "Official regional product reference. Appearance does not establish an identical Singapore recipe, serving size, nutrition or current stock.",
+      "visualQa": "Prepared whole-image photo visually reviewed 2026-10-02 for this source hash: drink identity, cup fit, proportions, background compatibility and absence of nutrition overlays checked.",
+      "outputs": [
+        {
+          "path": "/images/vanilla-sweet-cream-cold-brew.webp",
+          "width": 560,
+          "height": 560,
+          "bytes": 5796,
+          "sha256": "c8d9371beab7da505211307a49f3e93943bd6134561419ec6a6e7343e03d06ac",
+          "format": "webp"
+        },
+        {
+          "path": "/images/vanilla-sweet-cream-cold-brew-small.webp",
+          "width": 240,
+          "height": 240,
+          "bytes": 1692,
+          "sha256": "b220aa9ef90904fc9e89c1bd5a8a78a343a8ff9ce8088b2d4f0a5ee707f9ca0c",
+          "format": "webp"
+        }
+      ]
+    },
+    {
+      "id": "caramel-macchiato",
+      "productName": "Caramel Macchiato",
+      "productSource": "https://www.starbucks.com/menu/product/413/hot",
+      "observedUrl": "https://cloudassets.starbucks.com/is/image/sbuxcorp/SBX20211029_CaramelMacchiato?wid=560&hei=560&qlt=85",
+      "discoverySource": "https://www.starbucks.com/apiproxy/v1/ordering/menu",
+      "observedOn": "2026-10-02",
+      "downloadedOn": "2026-10-02T03:11:33.032Z",
+      "source": {
+        "width": 560,
+        "height": 560,
+        "bytes": 13051,
+        "sha256": "93f32d76291bfc055e07efbc56f42ef3552b1ea76452cb3d613e8577e6e53c05",
+        "format": "jpeg"
+      },
+      "originalPhotoSha256": "93f32d76291bfc055e07efbc56f42ef3552b1ea76452cb3d613e8577e6e53c05",
+      "identityStatus": "official-regional-product-reference",
+      "note": "Official regional product reference. Appearance does not establish an identical Singapore recipe, serving size, nutrition or current stock.",
+      "visualQa": "Prepared whole-image photo visually reviewed 2026-10-02 for this source hash: drink identity, cup fit, proportions, background compatibility and absence of nutrition overlays checked.",
+      "outputs": [
+        {
+          "path": "/images/caramel-macchiato.webp",
+          "width": 560,
+          "height": 560,
+          "bytes": 6074,
+          "sha256": "cabff8e993aa6a138a684de2adde76c6ee66d77bedb3a524cb7324de58b09596",
+          "format": "webp"
+        },
+        {
+          "path": "/images/caramel-macchiato-small.webp",
+          "width": 240,
+          "height": 240,
+          "bytes": 1796,
+          "sha256": "6cb84f5ebb76b142eb84f0bc615b79d3463c22c82c8f0ef03870465d0d2be031",
+          "format": "webp"
+        }
+      ]
+    },
+    {
+      "id": "iced-mocha",
+      "productName": "Iced Mocha",
+      "productSource": "https://www.starbucks.com/menu/product/408/iced",
+      "observedUrl": "https://cloudassets.starbucks.com/is/image/sbuxcorp/IcedCaffeMocha%E2%80%8B?wid=560&hei=560&qlt=85",
+      "discoverySource": "https://www.starbucks.com/apiproxy/v1/ordering/menu",
+      "observedOn": "2026-10-02",
+      "downloadedOn": "2026-10-02T03:11:33.294Z",
+      "source": {
+        "width": 560,
+        "height": 560,
+        "bytes": 10468,
+        "sha256": "b9ed6bcb23e10707697cc18dcf33816931d5a25bb9ed682e94769167c34ec307",
+        "format": "jpeg"
+      },
+      "originalPhotoSha256": "b9ed6bcb23e10707697cc18dcf33816931d5a25bb9ed682e94769167c34ec307",
+      "identityStatus": "official-regional-product-reference",
+      "note": "Official regional product reference. Appearance does not establish an identical Singapore recipe, serving size, nutrition or current stock.",
+      "visualQa": "Prepared whole-image photo visually reviewed 2026-10-02 for this source hash: drink identity, cup fit, proportions, background compatibility and absence of nutrition overlays checked.",
+      "outputs": [
+        {
+          "path": "/images/iced-mocha.webp",
+          "width": 560,
+          "height": 560,
+          "bytes": 3974,
+          "sha256": "f67abf08e031a9438971cef8852442e9c8b5f1fecc75f78c2abb4f655da9d661",
+          "format": "webp"
+        },
+        {
+          "path": "/images/iced-mocha-small.webp",
+          "width": 240,
+          "height": 240,
+          "bytes": 1282,
+          "sha256": "8232784145328cf5139c2864ae3326bb5112577c087394a5988f741cd3c15260",
+          "format": "webp"
+        }
+      ]
+    },
+    {
+      "id": "flat-white",
+      "productName": "Flat White",
+      "productSource": "https://www.starbucks.com/menu/product/565/hot",
+      "observedUrl": "https://cloudassets.starbucks.com/is/image/sbuxcorp/SBX20230406_FlatWhite?wid=560&hei=560&qlt=85",
+      "discoverySource": "https://www.starbucks.com/apiproxy/v1/ordering/menu",
+      "observedOn": "2026-10-02",
+      "downloadedOn": "2026-10-02T03:11:33.559Z",
+      "source": {
+        "width": 560,
+        "height": 560,
+        "bytes": 11080,
+        "sha256": "124466db0ff206e225075b94d4ca700a80a8b73f9d16c94534461bb10108ac6f",
+        "format": "jpeg"
+      },
+      "originalPhotoSha256": "124466db0ff206e225075b94d4ca700a80a8b73f9d16c94534461bb10108ac6f",
+      "identityStatus": "official-regional-product-reference",
+      "note": "Official regional product reference. Appearance does not establish an identical Singapore recipe, serving size, nutrition or current stock.",
+      "visualQa": "Prepared whole-image photo visually reviewed 2026-10-02 for this source hash: drink identity, cup fit, proportions, background compatibility and absence of nutrition overlays checked.",
+      "outputs": [
+        {
+          "path": "/images/flat-white.webp",
+          "width": 560,
+          "height": 560,
+          "bytes": 4372,
+          "sha256": "cffbc619c06097e1e152a04fa181abb0a9499f1a74ce7527e17899bc4c5c1207",
+          "format": "webp"
+        },
+        {
+          "path": "/images/flat-white-small.webp",
+          "width": 240,
+          "height": 240,
+          "bytes": 1336,
+          "sha256": "b39dcf5d8c696ccd3af7aadd433390faee3eb616bc8424f04487cc1ff494ae6b",
+          "format": "webp"
+        }
+      ]
+    },
+    {
+      "id": "chai-latte",
+      "productName": "Chai Tea Latte",
+      "productSource": "https://www.starbucks.com/menu/product/466/hot",
+      "observedUrl": "https://cloudassets.starbucks.com/is/image/sbuxcorp/SBX20190624_ChaiLatte?wid=560&hei=560&qlt=85",
+      "discoverySource": "https://www.starbucks.com/apiproxy/v1/ordering/menu",
+      "observedOn": "2026-10-02",
+      "downloadedOn": "2026-10-02T03:11:33.805Z",
+      "source": {
+        "width": 560,
+        "height": 560,
+        "bytes": 9929,
+        "sha256": "86f14e5f68b4a955c45468b698910009aad2d29d3eec9498a215f5cf95baa6e9",
+        "format": "jpeg"
+      },
+      "originalPhotoSha256": "86f14e5f68b4a955c45468b698910009aad2d29d3eec9498a215f5cf95baa6e9",
+      "identityStatus": "official-regional-product-reference",
+      "note": "Official regional product reference. Appearance does not establish an identical Singapore recipe, serving size, nutrition or current stock.",
+      "visualQa": "Prepared whole-image photo visually reviewed 2026-10-02 for this source hash: drink identity, cup fit, proportions, background compatibility and absence of nutrition overlays checked.",
+      "outputs": [
+        {
+          "path": "/images/chai-latte.webp",
+          "width": 560,
+          "height": 560,
+          "bytes": 3730,
+          "sha256": "94549d2c2b09cd33f2f5251c08b7a456170f6ebce51897c0341ce153c58422e4",
+          "format": "webp"
+        },
+        {
+          "path": "/images/chai-latte-small.webp",
+          "width": 240,
+          "height": 240,
+          "bytes": 1188,
+          "sha256": "88ceef7971848d991ed73cbd4de13b98521e9c89657d28889138c6104e40e0c0",
+          "format": "webp"
+        }
+      ]
+    },
+    {
+      "id": "iced-chai-latte",
+      "productName": "Iced Chai Tea Latte",
+      "productSource": "https://www.starbucks.com/menu/product/466/iced",
+      "observedUrl": "https://cloudassets.starbucks.com/is/image/sbuxcorp/IcedChaiTeaLatte?wid=560&hei=560&qlt=85",
+      "discoverySource": "https://www.starbucks.com/apiproxy/v1/ordering/menu",
+      "observedOn": "2026-10-02",
+      "downloadedOn": "2026-10-02T03:11:34.067Z",
+      "source": {
+        "width": 560,
+        "height": 560,
+        "bytes": 11950,
+        "sha256": "80a527528b415d614413d73c4467b4f168b4b5d39becc20d4540153c45acd7f5",
+        "format": "jpeg"
+      },
+      "originalPhotoSha256": "80a527528b415d614413d73c4467b4f168b4b5d39becc20d4540153c45acd7f5",
+      "identityStatus": "official-regional-product-reference",
+      "note": "Official regional product reference. Appearance does not establish an identical Singapore recipe, serving size, nutrition or current stock.",
+      "visualQa": "Prepared whole-image photo visually reviewed 2026-10-02 for this source hash: drink identity, cup fit, proportions, background compatibility and absence of nutrition overlays checked.",
+      "outputs": [
+        {
+          "path": "/images/iced-chai-latte.webp",
+          "width": 560,
+          "height": 560,
+          "bytes": 4826,
+          "sha256": "90872025684fb9f350f801578411ca7371322bef50f1586fe3a953c5468d79d0",
+          "format": "webp"
+        },
+        {
+          "path": "/images/iced-chai-latte-small.webp",
+          "width": 240,
+          "height": 240,
+          "bytes": 1392,
+          "sha256": "6f31dffbb2da9f2b30435f92f10ac554b73eac5f8357dbb2f33d9b0b7e42d1d3",
+          "format": "webp"
+        }
+      ]
+    },
+    {
+      "id": "hibiscus-tea-lemonade",
+      "productName": "Iced Shaken Hibiscus Tea Lemonade",
+      "productSource": "https://www.starbucks.com/menu/product/462/iced",
+      "observedUrl": "https://cloudassets.starbucks.com/is/image/sbuxcorp/IcedPassionTangoTeaLemonade?wid=560&hei=560&qlt=85",
+      "discoverySource": "https://www.starbucks.com/apiproxy/v1/ordering/menu",
+      "observedOn": "2026-10-02",
+      "downloadedOn": "2026-10-02T03:11:34.331Z",
+      "source": {
+        "width": 560,
+        "height": 560,
+        "bytes": 13091,
+        "sha256": "916bec69a12ed6857cbcc5feb1e56b95ddc67e27bef81da34ac2208a22a26378",
+        "format": "jpeg"
+      },
+      "originalPhotoSha256": "916bec69a12ed6857cbcc5feb1e56b95ddc67e27bef81da34ac2208a22a26378",
+      "identityStatus": "official-regional-product-reference",
+      "note": "Official regional product reference. Appearance does not establish an identical Singapore recipe, serving size, nutrition or current stock. US Passion Tango is a representative hibiscus-tea-lemonade photo, not proof of the same tea blend.",
+      "visualQa": "Prepared whole-image photo visually reviewed 2026-10-02 for this source hash: drink identity, cup fit, proportions, background compatibility and absence of nutrition overlays checked.",
+      "outputs": [
+        {
+          "path": "/images/hibiscus-tea-lemonade.webp",
+          "width": 560,
+          "height": 560,
+          "bytes": 6154,
+          "sha256": "192b71316ddef02ef782bddedad760c47ffa3dec5c8d37c1490a2cfeddc13113",
+          "format": "webp"
+        },
+        {
+          "path": "/images/hibiscus-tea-lemonade-small.webp",
+          "width": 240,
+          "height": 240,
+          "bytes": 1680,
+          "sha256": "a0fc1e7aea01d9fae3606e10a91233a272f84ac8301cd9132830139d307f3854",
+          "format": "webp"
+        }
+      ]
+    },
+    {
+      "id": "mango-dragonfruit-lemonade",
+      "productName": "Mango Dragonfruit with Lemonade",
+      "productSource": "https://www.starbucks.com/menu/product/2122726/iced",
+      "observedUrl": "https://cloudassets.starbucks.com/is/image/sbuxcorp/MangoDragonfruitLemonadeRefreshers?wid=560&hei=560&qlt=85",
+      "discoverySource": "https://www.starbucks.com/apiproxy/v1/ordering/menu",
+      "observedOn": "2026-10-02",
+      "downloadedOn": "2026-10-02T03:11:34.591Z",
+      "source": {
+        "width": 560,
+        "height": 560,
+        "bytes": 12746,
+        "sha256": "0a904ca42f6d192ad91d6e92f4ba790cbef53185417e1b8a1ee5ce3aab2a3d15",
+        "format": "jpeg"
+      },
+      "originalPhotoSha256": "0a904ca42f6d192ad91d6e92f4ba790cbef53185417e1b8a1ee5ce3aab2a3d15",
+      "identityStatus": "official-regional-product-reference",
+      "note": "Official regional product reference. Appearance does not establish an identical Singapore recipe, serving size, nutrition or current stock.",
+      "visualQa": "Prepared whole-image photo visually reviewed 2026-10-02 for this source hash: drink identity, cup fit, proportions, background compatibility and absence of nutrition overlays checked.",
+      "outputs": [
+        {
+          "path": "/images/mango-dragonfruit-lemonade.webp",
+          "width": 560,
+          "height": 560,
+          "bytes": 6080,
+          "sha256": "bf72b9cf9f52044a9c830103bbbe942db4a7ab79efbdd87c531c3654f2bdba29",
+          "format": "webp"
+        },
+        {
+          "path": "/images/mango-dragonfruit-lemonade-small.webp",
+          "width": 240,
+          "height": 240,
+          "bytes": 1528,
+          "sha256": "c33ff9bcbda8c1c9e64d93d9eb42011de3267edfc2889756fc3e5ce6522ac1e5",
+          "format": "webp"
+        }
+      ]
+    },
+    {
+      "id": "iced-chocolate",
+      "productName": "Signature Iced Chocolate",
+      "productSource": "https://www.starbucks.com.sg/menu/beverages/other-beverages/signature-iced-chocolate",
+      "observedUrl": "https://www.starbucks.com.sg/media/nutri-grade/website/website%20iced%20chocolate%20d8.jpg",
+      "observedOn": "2026-10-02",
+      "downloadedOn": "2026-10-02T03:11:35.540Z",
+      "source": {
+        "width": 1254,
+        "height": 1254,
+        "bytes": 1132603,
+        "sha256": "28b48e48d84584225f40666a21278a1000fdc2a8ce6605432d80573b25856c94",
+        "format": "png"
+      },
+      "originalPhotoSha256": "5a067552741b2e107240daffdfa12f91b2bba88870a367314c7f2ef1b71db446",
+      "edit": {
+        "file": "assets/image-edits/iced-chocolate.png",
+        "method": "Built-in image_gen precise-object-edit",
+        "prompt": "Use case: precise-object-edit. Edit the product photograph for an educational prototype. Remove ONLY the white Nutri-Grade nutrition badge to the left of the drink, including letters, percentage and border. Replace that badge area with matching existing dark-green backdrop. Keep all parts of the iced chocolate, glass, ice, whipped topping, cocoa dusting, shadows, reflection, lighting, colour, camera angle, size, position and square composition unchanged. Do not restyle, alter the cup or add anything."
+      },
+      "identityStatus": "label-removal-illustration",
+      "note": "Built-in image editing removed nutrition badges from the Singapore reference. An illustrative edit, not an unmodified official photo or nutrition evidence.",
+      "visualQa": "Prepared whole-image photo visually reviewed 2026-10-02 for this source hash: drink identity, cup fit, proportions, background compatibility and absence of nutrition overlays checked.",
+      "outputs": [
+        {
+          "path": "/images/iced-chocolate.webp",
+          "width": 560,
+          "height": 560,
+          "bytes": 7360,
+          "sha256": "d7e01916c866725d911a400e4b7355f460908749a3836c1a5fb8b01d68e5c856",
+          "format": "webp"
+        },
+        {
+          "path": "/images/iced-chocolate-small.webp",
+          "width": 240,
+          "height": 240,
+          "bytes": 2154,
+          "sha256": "a17bd2022a317ac996f89727dc5c128f920a472b2391b84ae28407752eaf4544",
+          "format": "webp"
+        }
+      ]
+    },
+    {
+      "id": "vanilla-creme-frappuccino",
+      "productName": "Vanilla Crème Frappuccino",
+      "productSource": "https://www.starbucks.com/menu/product/440/iced",
+      "observedUrl": "https://cloudassets.starbucks.com/is/image/sbuxcorp/SBX20181113_VanillaBeanFrapp?wid=560&hei=560&qlt=85",
+      "discoverySource": "https://www.starbucks.com/apiproxy/v1/ordering/menu",
+      "observedOn": "2026-10-02",
+      "downloadedOn": "2026-10-02T03:11:35.788Z",
+      "source": {
+        "width": 560,
+        "height": 560,
+        "bytes": 10313,
+        "sha256": "40ebd9b654ea445c401046e1f2302de92f0be689d4f0e0a7a44f096cddc52136",
+        "format": "jpeg"
+      },
+      "originalPhotoSha256": "40ebd9b654ea445c401046e1f2302de92f0be689d4f0e0a7a44f096cddc52136",
+      "identityStatus": "official-regional-product-reference",
+      "note": "Official regional product reference. Appearance does not establish an identical Singapore recipe, serving size, nutrition or current stock. US Vanilla Bean Crème is a representative vanilla crème photo.",
+      "visualQa": "Prepared whole-image photo visually reviewed 2026-10-02 for this source hash: drink identity, cup fit, proportions, background compatibility and absence of nutrition overlays checked.",
+      "outputs": [
+        {
+          "path": "/images/vanilla-creme-frappuccino.webp",
+          "width": 560,
+          "height": 560,
+          "bytes": 3680,
+          "sha256": "aaa07f58b9cd844758879781072eaa8ca6833d47254c89848b23a714a15ca237",
+          "format": "webp"
+        },
+        {
+          "path": "/images/vanilla-creme-frappuccino-small.webp",
+          "width": 240,
+          "height": 240,
+          "bytes": 1178,
+          "sha256": "9a6f60fa4df0303a60f9f5a249b172a5c3eee2e785cadfb816b0e8674eb4a059",
+          "format": "webp"
+        }
+      ]
+    },
+    {
+      "id": "chocolate-chip-creme-frappuccino",
+      "productName": "Chocolate Chip Crème Frappuccino",
+      "productSource": "https://www.starbucks.com.au/product/double-chocolate-chip-frappuccino/",
+      "observedUrl": "https://bunny-wp-pullzone-8lgzf5kyx3.b-cdn.net/assets/uploads/2023/08/sbx20190528-30305-doublechocolatychipcremefrapp-onwhite-corelib-srgb-1.png",
+      "observedOn": "2026-10-02",
+      "downloadedOn": "2026-10-02T03:11:42.128Z",
+      "source": {
+        "width": 1500,
+        "height": 1500,
+        "bytes": 1115876,
+        "sha256": "7bc09290abc737fc7bdccf456b488bf4bff29377ea92554b69c048c7e3730ddb",
+        "format": "png"
+      },
+      "originalPhotoSha256": "7bc09290abc737fc7bdccf456b488bf4bff29377ea92554b69c048c7e3730ddb",
+      "identityStatus": "official-regional-product-reference",
+      "note": "Official regional product reference. Appearance does not establish an identical Singapore recipe, serving size, nutrition or current stock. Australian Double Chocolate Chip is a representative regional chocolate-chip photo. Genuine transparency is retained so the full cup sits on the app's green background.",
+      "visualQa": "Prepared whole-image photo visually reviewed 2026-10-02 for this source hash: drink identity, cup fit, proportions, background compatibility and absence of nutrition overlays checked.",
+      "outputs": [
+        {
+          "path": "/images/chocolate-chip-creme-frappuccino.webp",
+          "width": 560,
+          "height": 560,
+          "bytes": 52968,
+          "sha256": "9f96df68d28ea89f6373ab8d95b63558fb5fb541a9306b457b1e4d933743da03",
+          "format": "webp"
+        },
+        {
+          "path": "/images/chocolate-chip-creme-frappuccino-small.webp",
+          "width": 240,
+          "height": 240,
+          "bytes": 9718,
+          "sha256": "0db1732ab4386c462ab6e3e1836e8bad332faa990c1f36e8168a7899ab7f7ff8",
+          "format": "webp"
+        }
+      ]
+    }
+  ],
+  "banner": {
+    "sourceFile": "assets/image-edits/finder-drinks-botanical.png",
+    "method": "Built-in image_gen background-extraction / compositing of a user-supplied banner reference, with transparent_background true.",
+    "prompt": "Edit the provided banner reference using background-extraction / compositing. Create ONLY a standalone left-hand botanical drinks illustration from this reference, tightly framed in a square, on a true transparent background. Preserve the attractive composition and realistic product look: a tall dark iced coffee at back-left, tall pink strawberry iced drink at back-right, and a larger green matcha latte in front, all with intact cup tops and bases. Preserve the existing green mermaid emblem on the matcha cup. Keep the dark forest-green organic blob behind the drinks, the pale sage organic blob, tasteful leaves along the left and lower right, four tiny sage dots near the top-left, and the fine curved green stroke at the lower-right. The artwork should fill the square generously with very little empty transparent margin, readable when displayed at 145 pixels. Match the reference's warm natural lighting and botanical Starbucks-style palette. REMOVE the entire cream rectangular banner background and REMOVE all title, body text, green CTA button, spark icon, and any other UI. No new text, no watermark, no rectangular backdrop. Only the three drinks and botanical decorative cluster on transparent alpha. This is an editable asset for a mobile banner whose typography and button will be real HTML.",
+    "sourceSha256": "67ac8b4d9595707f82b2941d293e4828b9f3a31440031e1c1cbc672d2b5d8b18",
+    "generatedSource": {
+      "tool": "Built-in image_gen",
+      "mode": "edit: background-extraction / compositing",
+      "sourceFile": "assets/image-edits/finder-drinks-botanical.png",
+      "sourceSha256": "67ac8b4d9595707f82b2941d293e4828b9f3a31440031e1c1cbc672d2b5d8b18",
+      "transparentBackground": true,
+      "reference": "User-supplied banner reference in the current task",
+      "originalArtifact": "exec-8dc97b26-ac9b-4d0e-9bf1-eb1c02f7ea26.png",
+      "preservedOriginal": "assets/image-edits/finder-drinks.png"
+    },
+    "source": {
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1798896,
+      "format": "png",
+      "hasAlpha": true
+    },
+    "encoding": {
+      "quality": 40,
+      "alphaQuality": 10,
+      "effort": 6,
+      "alphaPreserved": true
+    },
+    "note": "Illustrative generated botanical banner art, not official Starbucks campaign photography or recipe evidence. The transparent composition supplies only artwork; banner copy and controls are real HTML.",
+    "outputs": [
+      {
+        "path": "/images/finder-drinks.webp",
+        "width": 400,
+        "height": 400,
+        "bytes": 15592,
+        "sha256": "9bdce6533751b3bb1adb2ae0b6baf5f217dc9ac6357b98d4ba803dae4fcc76a9",
+        "format": "webp",
+        "hasAlpha": true
+      },
+      {
+        "path": "/images/finder-drinks-small.webp",
+        "width": 200,
+        "height": 200,
+        "bytes": 6114,
+        "sha256": "97e1d2a0fb397a60cf4b79a04ed774d4e3943abd838e6f1c8cc7f28d9713f701",
+        "format": "webp",
+        "hasAlpha": true
+      }
+    ]
+  },
+  "logo": {
+    "path": "/images/starbucks-logo.svg",
+    "observedUrl": "https://www.starbucks.com.sg/StarbucksTheme/img/logo.svg",
+    "productSource": "https://www.starbucks.com.sg/menu/beverages/",
+    "observedOn": "2026-10-02",
+    "bytes": 7402,
+    "sha256": "a5dc499bba1a5edafa93317cf9b50fc515cc57a04ac9f86326115403eaf57382",
+    "format": "svg"
+  }
+}
