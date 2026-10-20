@@ -6,6 +6,8 @@ prototype with guided drink discovery, optional AI chat and a size-aware demo ca
 [Live demo](https://starbucks.utf.sh/) · [App setup](app/README.md) ·
 [Product requirements](docs/drink-finder-prd.md)
 
+![Find My Drink menu, explained drink picks and Help me choose chat with a sample conversation](docs/images/app-overview.png)
+
 ## Start locally
 
 Use Node.js 24 and npm. After accepting the private repository invitation:
