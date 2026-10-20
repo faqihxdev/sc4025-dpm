@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en-SG">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#1e3932" />
+    <meta name="description" content="A student prototype of a goal-based drink finder for Starbucks Singapore. Explore the menu, compare explained recommendations and try a demo cart." />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="icon" type="image/svg+xml" href="/images/starbucks-logo.svg" />
+    <link rel="preload" href="/fonts/manrope-latin-variable.woff2" as="font" type="font/woff2" crossorigin />
+    <script>
+      if (!location.hash || location.hash === '#' || location.hash === '#/' || location.hash === '#/menu') {
+        const hero = document.createElement('link');
+        hero.rel = 'preload';
+        hero.as = 'image';
+        hero.href = '/images/finder-drinks-small.webp';
+        hero.imageSrcset = '/images/finder-drinks-small.webp 200w, /images/finder-drinks.webp 400w';
+        hero.imageSizes = '(max-width: 359px) 136px, 164px';
+        hero.fetchPriority = 'high';
+        document.head.append(hero);
+      }
+    </script>
+    <title>Find my drink | Starbucks student concept</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

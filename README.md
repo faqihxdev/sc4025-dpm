@@ -1,10 +1,35 @@
-# sc4025-dpm
+# Find My Drink
 
-Functional MVP source code for the SC4025 Digital Product Management Starbucks
-group project.
+SC4025 Digital Product Management group project. A Starbucks-inspired web
+prototype with guided drink discovery, optional AI chat and a size-aware demo cart.
 
-Research, product planning, design artefacts, the report, and presentation files
-are maintained separately and are not duplicated here.
+[Live demo](https://starbucks.utf.sh/) · [App setup](app/README.md) ·
+[Product requirements](docs/drink-finder-prd.md)
+
+## Start locally
+
+Use Node.js 24 and npm. After accepting the private repository invitation:
+
+```sh
+git clone https://github.com/faqihxdev/sc4025-dpm.git
+cd sc4025-dpm
+git config commit.template .gitmessage
+cd app
+npm ci
+npm run dev -- --strictPort
+```
+
+Open [127.0.0.1:4177](http://127.0.0.1:4177/). Browsing, guided recommendations
+and the cart need no credentials. See [app/README.md](app/README.md) for optional
+chat setup, tests and deployment. Real OpenAI calls use the key owner's credits.
+
+If a private HTTPS clone fails, confirm that you accepted the invitation with
+the correct GitHub account. With GitHub CLI installed, configure Git access:
+
+```sh
+gh auth login --hostname github.com
+gh auth setup-git --hostname github.com
+```
 
 ## Repository structure
 
@@ -12,13 +37,16 @@ are maintained separately and are not duplicated here.
 .
 |-- .github/                  # Pull-request template and naming checks
 |-- AGENTS.md                 # Instructions for coding agents
-|-- app/                      # Functional MVP source and setup instructions
+|-- app/                      # React/TypeScript MVP, local data and tests
+|-- docs/                     # Requirements, architecture and reference notes
 |-- tests/                    # Automated and manual software validation
 `-- README.md
 ```
 
-The structure is intentionally stack-neutral. Add framework-specific files only
-after the team agrees on the MVP and technology choice.
+The app uses React, TypeScript, Vite and Tailwind CSS. Cloudflare Pages hosts
+the frontend and server-side chat/analytics Functions. Secrets stay outside Git
+and browser assets. Broader research, design files, the report and slides are
+maintained separately.
 
 ## Development scope
 
@@ -41,12 +69,6 @@ after the team agrees on the MVP and technology choice.
 - In the PR description, explain what changed, why, and how it was validated.
 - Preserve shared history; do not rewrite pushed commits merely to rename them.
 
-Enable the repository's commit-message template after cloning:
-
-```text
-git config commit.template .gitmessage
-```
-
 Examples:
 
 ```text
@@ -56,8 +78,13 @@ docs: document local development setup
 feat: add separate payment to group order
 ```
 
-## After cloning
+Before working, update your local `main` and create a named branch:
 
-1. Run `git config commit.template .gitmessage`.
-2. Read `app/README.md` for the current stack and setup instructions.
-3. Create a correctly named branch before making a focused change.
+```sh
+git switch main
+git pull --ff-only
+git switch -c yourname/feat-short-description
+```
+
+Run the relevant checks before committing. Push your branch and open a pull
+request against `main`. A Cloudflare deployment is separate from a Git push.
