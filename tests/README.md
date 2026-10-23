@@ -18,7 +18,23 @@ production preview, but reuses an existing server if present. Browser tests mock
 or block model and telemetry requests. Size-budget failures are separate from
 build failures. See the [app setup guide](../app/README.md) for local API setup.
 
-## Setup verification, 2026-10-20
+## Critical test policy, 2026-10-23
+
+Keep automated tests for failures that could produce wrong recommendations or
+orders, lose saved state, duplicate paid API calls, bypass server limits, or
+leak private data. Keep a small browser suite for the main flows and risky
+interaction races.
+
+Check copy, spacing, image framing and animation appearance manually when they
+change. Do not add tests for every helper, wording variant or viewport. Add a
+regression test when a consequential bug needs protection.
+
+## Historical verification records
+
+The sections below describe earlier builds. Their test counts, coverage lists
+and filenames are historical records, not the current test inventory.
+
+### Setup verification, 2026-10-20
 
 A clean temporary copy of the candidate Git files passed `npm ci` with Node.js
 24.15.0 and npm 11.12.1. It contained no `.env`, `.dev.vars` or copied dependencies.
@@ -28,11 +44,6 @@ A clean temporary copy of the candidate Git files passed `npm ci` with Node.js
 - No real model or telemetry request was needed.
 - Size check failed the existing code budgets: 101.1 KB JavaScript gzip versus
   90 KB, and 11.9 KB CSS gzip versus 10 KB. Photos, illustration and font passed.
-
-## Historical verification records
-
-The dated sections below record results for their specific builds. Test counts,
-asset names and sizes are historical evidence, not a fresh test of the checkout.
 
 ### Baseline, 2 October 2026
 

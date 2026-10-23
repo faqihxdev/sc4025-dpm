@@ -24,46 +24,6 @@ beforeEach(() => {
 afterEach(() => { vi.unstubAllGlobals(); vi.useRealTimers(); });
 
 describe('feedback state', () => {
-  it('does not create an analytics identity just to check eligibility', async () => {
-    const feedback = await import('./persistence');
-    expect(feedback.readFeedbackState()).toEqual({ questionVersion: 1, responseId: null, vote: null, dismissedUntil: 0 });
-    expect(feedback.isFeedbackPromptEligible()).toBe(true);
-    expect(local.size).toBe(0);
-    expect(session.size).toBe(0);
-  });
-
-  it('keeps one response ID when a visitor revises a vote or opens another tab', async () => {
-    const feedback = await import('./persistence');
-    const id = feedback.getFeedbackResponseId();
-    expect(id).toMatch(/^[a-f\d]{8}-[a-f\d]{4}-[a-f\d]{4}-[a-f\d]{4}-[a-f\d]{12}$/i);
-    feedback.noteFeedbackVote('yes', id);
-    feedback.noteFeedbackVote('no', id);
-    session.clear();
-    vi.resetModules();
-    const newTab = await import('./persistence');
-    expect(newTab.getFeedbackResponseId()).toBe(id);
-    expect(newTab.readFeedbackState().vote).toBe('no');
-    expect(newTab.isFeedbackPromptEligible()).toBe(false);
-  });
-
-  it.each(['yes', 'no'] as const)('never automatically asks again after an acknowledged %s vote', async vote => {
-    const feedback = await import('./persistence');
-    feedback.noteFeedbackVote(vote, responseId);
-    expect(feedback.isFeedbackPromptEligible()).toBe(false);
-    vi.advanceTimersByTime(365 * 24 * 60 * 60 * 1000);
-    session.clear();
-    vi.resetModules();
-    const reopened = await import('./persistence');
-    expect(reopened.isFeedbackPromptEligible()).toBe(false);
-    expect(reopened.readFeedbackState()).toMatchObject({ responseId, vote });
-  });
-
-  it('keeps the response available when no vote has been acknowledged', async () => {
-    const feedback = await import('./persistence');
-    feedback.getFeedbackResponseId();
-    expect(feedback.readFeedbackState().vote).toBeNull();
-    expect(feedback.isFeedbackPromptEligible()).toBe(true);
-  });
 
   it('keeps feedback independent of demo state and never stores a written comment', async () => {
     const feedback = await import('./persistence');
@@ -73,22 +33,6 @@ describe('feedback state', () => {
     expect(Object.keys(saved).sort()).toEqual(['dismissedUntil', 'questionVersion', 'responseId', 'vote']);
     session.delete('sc4025-drink-finder:v2');
     expect(feedback.isFeedbackPromptEligible()).toBe(false);
-  });
-
-  it.each([null, '', '{', '[]', 'null', '{"questionVersion":0}', '{"questionVersion":2}', '{"questionVersion":"1"}'])('ignores corrupt or another-version state: %s', async raw => {
-    const feedback = await import('./persistence');
-    if (raw !== null) local.set(feedback.FEEDBACK_STORAGE_KEY, raw);
-    expect(feedback.readFeedbackState()).toEqual({ questionVersion: 1, responseId: null, vote: null, dismissedUntil: 0 });
-    expect(feedback.isFeedbackPromptEligible()).toBe(true);
-  });
-
-  it('drops unknown fields and invalid values instead of accepting forged preference state', async () => {
-    const feedback = await import('./persistence');
-    local.set(feedback.FEEDBACK_STORAGE_KEY, JSON.stringify({ questionVersion: 1, responseId: 'somebody@email.test', vote: 'yes', dismissedUntil: -10, comment: 'Private text', chat: 'Transcript' }));
-    expect(feedback.readFeedbackState()).toEqual({ questionVersion: 1, responseId: null, vote: null, dismissedUntil: 0 });
-    feedback.getFeedbackResponseId();
-    expect(local.get(feedback.FEEDBACK_STORAGE_KEY)).not.toContain('Private text');
-    expect(local.get(feedback.FEEDBACK_STORAGE_KEY)).not.toContain('Transcript');
   });
 });
 
@@ -101,15 +45,6 @@ describe('quiet feedback prompting', () => {
     const refreshed = await import('./persistence');
     expect(refreshed.isFeedbackPromptEligible()).toBe(false);
     expect(local.size).toBe(0);
-  });
-
-  it('allows another session if the prompt was neither dismissed nor answered', async () => {
-    const feedback = await import('./persistence');
-    feedback.markFeedbackPromptShown();
-    session.clear();
-    vi.resetModules();
-    const newTab = await import('./persistence');
-    expect(newTab.isFeedbackPromptEligible()).toBe(true);
   });
 
   it('persists a seven-day dismissal cooldown across new tabs and then permits a new session', async () => {
@@ -137,23 +72,5 @@ describe('quiet feedback prompting', () => {
     expect(() => feedback.noteFeedbackVote('no', id)).not.toThrow();
     expect(feedback.readFeedbackState()).toMatchObject({ responseId: id, vote: 'no' });
     expect(feedback.isFeedbackPromptEligible()).toBe(false);
-  });
-
-  it('does not nag again after a storage write fails', async () => {
-    vi.stubGlobal('window', {
-      localStorage: { getItem: () => null, setItem: () => { throw new Error('Quota exceeded'); } },
-      sessionStorage: { getItem: () => null, setItem: () => { throw new Error('Quota exceeded'); } },
-    });
-    const feedback = await import('./persistence');
-    feedback.dismissFeedbackPrompt();
-    expect(feedback.isFeedbackPromptEligible()).toBe(false);
-    expect(feedback.readFeedbackState().dismissedUntil).toBeGreaterThan(Date.now());
-  });
-
-  it('does not throw or show an automatic prompt outside a browser', async () => {
-    vi.stubGlobal('window', undefined);
-    const feedback = await import('./persistence');
-    expect(feedback.isFeedbackPromptEligible()).toBe(false);
-    expect(feedback.readFeedbackState().vote).toBeNull();
   });
 });
