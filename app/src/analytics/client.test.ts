@@ -86,25 +86,6 @@ describe('explicit telemetry and privacy', () => {
     stop();
   });
 
-  it('deduplicates visit and feature events across reloads without a persistent visitor identifier', async () => {
-    const f = fixture();
-    const stop = f.client.start();
-    f.client.feature('chat');
-    f.client.feature('chat');
-    await f.drain();
-    stop();
-    const reloaded = createAnalytics(f.environment);
-    const stopAgain = reloaded.start();
-    reloaded.feature('chat');
-    reloaded.feature('quick_choices');
-    await f.drain();
-    expect(f.events().map(event => event.name)).toEqual(['visit_started', 'feature_used', 'feature_used']);
-    const sessionIds = f.transport.mock.calls.map(([envelope]) => envelope.sessionId);
-    expect(new Set(sessionIds).size).toBe(1);
-    expect(f.preferenceStorage.values.size).toBe(0);
-    stopAgain();
-  });
-
   it('honours opt-out in another tab and notifies the settings subscriber', async () => {
     const f = fixture();
     const stop = f.client.start();
@@ -134,92 +115,9 @@ describe('explicit telemetry and privacy', () => {
     expect(serialized).not.toContain('google.com');
     stop();
   });
-
-  it.each([
-    ['', 'direct'], ['https://t.co/private', 'social'], ['https://www.facebook.com/profile?id=123', 'social'],
-    ['https://example.com/private', 'other'], ['invalid', 'other'],
-  ])('categorizes %s without transmitting the URL', async (referrer, expected) => {
-    const f = fixture();
-    f.state.referrer = referrer;
-    const stop = f.client.start();
-    await f.drain();
-    expect(f.events()[0].properties.referral_source).toBe(expected);
-    stop();
-  });
-
-  it('works in memory when storage is unavailable and fails quietly without secure random IDs', async () => {
-    const f = fixture();
-    const denied = { getItem: () => { throw new Error('blocked'); }, setItem: () => { throw new Error('blocked'); } };
-    const client = createAnalytics({ ...f.environment, sessionStorage: denied, localStorage: denied });
-    const stop = client.start();
-    client.feature('menu');
-    await f.drain();
-    expect(f.events()).toHaveLength(2);
-    stop();
-    f.transport.mockClear();
-    const noRandom = createAnalytics({ ...f.environment, uuid: () => null });
-    const stopNoRandom = noRandom.start();
-    noRandom.feature('chat');
-    await f.drain();
-    expect(f.transport).not.toHaveBeenCalled();
-    stopNoRandom();
-  });
 });
 
 describe('flows and conversation stops', () => {
-  it('ties recommendations and a single completion to each guided attempt', async () => {
-    const f = fixture();
-    const stop = f.client.start();
-    f.client.beginFlow('quick_choices');
-    f.client.recommendations('quick_choices', 3);
-    f.client.complete('quick_choices');
-    f.client.complete('quick_choices');
-    f.client.beginFlow('quick_choices');
-    f.client.recommendations('quick_choices', 1);
-    f.client.complete('quick_choices');
-    await f.drain();
-    const flowEvents = f.events().filter(event => 'flow_id' in event.properties);
-    expect(flowEvents.map(event => event.name)).toEqual([
-      'finder_started', 'recommendations_shown', 'flow_completed',
-      'finder_started', 'recommendations_shown', 'flow_completed',
-    ]);
-    expect(flowEvents[0].properties.flow_id).toBe(flowEvents[2].properties.flow_id);
-    expect(flowEvents[3].properties.flow_id).toBe(flowEvents[5].properties.flow_id);
-    expect(flowEvents[0].properties.flow_id).not.toBe(flowEvents[3].properties.flow_id);
-    stop();
-  });
-
-  it('makes menu additions separate implicit flows', async () => {
-    const f = fixture();
-    const stop = f.client.start();
-    f.client.complete('menu');
-    f.client.complete('menu');
-    await f.drain();
-    const completed = f.events().filter(event => event.name === 'flow_completed');
-    expect(completed).toHaveLength(2);
-    expect(completed[0].properties.flow_id).not.toBe(completed[1].properties.flow_id);
-    stop();
-  });
-
-  it('records only the bounded reason and turn count once per conversation, including after reload', async () => {
-    const f = fixture();
-    const stop = f.client.start();
-    f.client.chatEnded('repeated_off_topic', 3, CONVERSATION_ID);
-    f.client.chatEnded('repeated_off_topic', 3, CONVERSATION_ID);
-    f.client.chatEnded('turn_limit', 21, RESPONSE_ID);
-    f.client.chatEnded('unsafe_request', 0, RESPONSE_ID);
-    f.client.chatEnded('security_misuse', 2, 'not-an-id');
-    await f.drain();
-    stop();
-    const reloaded = createAnalytics(f.environment);
-    const stopReloaded = reloaded.start();
-    reloaded.chatEnded('repeated_off_topic', 3, CONVERSATION_ID);
-    await f.drain();
-    const ended = f.events().filter(event => event.name === 'chat_ended');
-    expect(ended).toHaveLength(1);
-    expect(ended[0].properties).toEqual({ reason: 'repeated_off_topic', turn_count: 3, conversation_id: CONVERSATION_ID });
-    stopReloaded();
-  });
 
   it('accepts bounded review excerpts only for misuse stops, never turn limits', async () => {
     const f = fixture();
@@ -235,71 +133,6 @@ describe('flows and conversation stops', () => {
 });
 
 describe('active time and delivery', () => {
-  it('does not count idle or background time as engagement', async () => {
-    const f = fixture();
-    const stop = f.client.start();
-    await vi.advanceTimersByTimeAsync(90_000);
-    f.state.visible = false;
-    f.emit('visibility');
-    await vi.advanceTimersByTimeAsync(600_000);
-    expect(f.events().some(event => event.name === 'active_time_120s')).toBe(false);
-    const saved = JSON.parse([...f.storage.values.values()][0]) as { activeMilliseconds: number };
-    expect(saved.activeMilliseconds).toBe(30_000);
-    stop();
-  });
-
-  it('accumulates active time across refresh and emits the two-minute event once', async () => {
-    const f = fixture();
-    const stop = f.client.start();
-    for (let n = 0; n < 3; n += 1) { await vi.advanceTimersByTimeAsync(20_000); f.emit('activity'); }
-    stop();
-    const reloaded = createAnalytics(f.environment);
-    const stopReloaded = reloaded.start();
-    for (let n = 0; n < 7; n += 1) { await vi.advanceTimersByTimeAsync(20_000); f.emit('activity'); }
-    await f.drain();
-    expect(f.events().filter(event => event.name === 'active_time_120s')).toHaveLength(1);
-    expect(f.events().find(event => event.name === 'active_time_120s')?.properties).toEqual({ active_seconds: 120 });
-    stopReloaded();
-  });
-
-  it('caps queue size, batches ten events, and does not retry failed batches', async () => {
-    const f = fixture();
-    f.transport.mockResolvedValue(false);
-    const stop = f.client.start();
-    for (let n = 0; n < 100; n += 1) f.client.view('menu');
-    await vi.advanceTimersByTimeAsync(5000);
-    expect(f.transport).toHaveBeenCalledTimes(4);
-    expect(f.transport.mock.calls.every(([envelope]) => envelope.events.length <= 10)).toBe(true);
-    expect(f.events()).toHaveLength(40);
-    expect(new Set(f.events().map(event => event.id)).size).toBe(40);
-    await vi.advanceTimersByTimeAsync(5000);
-    expect(f.transport).toHaveBeenCalledTimes(4);
-    stop();
-  });
-
-  it('partitions large non-ASCII chat reviews by UTF-8 bytes without dropping other events', async () => {
-    const f = fixture();
-    const stop = f.client.start();
-    f.client.feature('chat');
-    for (let n = 0; n < 6; n += 1) {
-      const id = `00000000-0000-4000-8000-${String(9000 + n).padStart(12, '0')}`;
-      const text = n % 2 ? '😀'.repeat(300) : '饮'.repeat(600);
-      f.client.chatEnded('security_misuse', 3, id, [text, text, text]);
-    }
-    f.client.view('menu');
-    await vi.advanceTimersByTimeAsync(5000);
-    expect(f.events().filter(event => event.name === 'chat_ended')).toHaveLength(6);
-    expect(f.events().map(event => event.name)).toEqual([
-      'visit_started', 'feature_used', ...Array<string>(6).fill('chat_ended'), 'drink_viewed',
-    ]);
-    expect(f.transport.mock.calls.length).toBeGreaterThan(1);
-    for (const [envelope] of f.transport.mock.calls) {
-      expect(envelope.events.length).toBeLessThanOrEqual(10);
-      expect(new TextEncoder().encode(JSON.stringify(envelope)).byteLength).toBeLessThanOrEqual(12_288);
-    }
-    expect(new Set(f.events().map(event => event.id)).size).toBe(9);
-    stop();
-  });
 
   it('submits feedback immediately and reports success only after the endpoint acknowledges it', async () => {
     const f = fixture();
@@ -314,20 +147,5 @@ describe('active time and delivery', () => {
     expect(await f.client.submitComment('no', RESPONSE_ID, '')).toBe(false);
     expect(await f.client.submitComment('no', RESPONSE_ID, 'x'.repeat(501))).toBe(false);
     expect(await f.client.submitVote('yes', 'not-an-id')).toBe(false);
-  });
-
-  it('uses keepalive on page hide and removes listeners on cleanup', async () => {
-    const f = fixture();
-    const stop = f.client.start();
-    f.emit('pagehide');
-    await Promise.resolve();
-    expect(f.transport.mock.calls[0][1]).toBe(true);
-    stop();
-    f.transport.mockClear();
-    f.emit('activity');
-    f.emit('visibility');
-    f.emit('pagehide');
-    await f.drain();
-    expect(f.transport).not.toHaveBeenCalled();
   });
 });

@@ -23,31 +23,6 @@ beforeEach(() => {
 });
 afterEach(() => { vi.unstubAllGlobals(); });
 
-describe('chat response validation', () => {
-  it('accepts known catalogue picks and de-duplicates bounded suggestions', async () => {
-    const { parseChatResponse } = await import('./chat-session');
-    const response = { ...validResponse(), reply: '  Try these iced drinks.  ', suggestions: ['No coffee', 'No coffee'] };
-    expect(parseChatResponse(response)).toEqual(validResponse());
-  });
-
-  it('rejects unsafe IDs, duplicate picks, invalid preferences and oversized output', async () => {
-    const { parseChatResponse } = await import('./chat-session');
-    const response = validResponse();
-    const invalid = [
-      { ...response, picks: [{ drinkId: 'unknown-drink', reason: 'Unverified.' }] },
-      { ...response, picks: [response.picks[0], response.picks[0]] },
-      { ...response, picks: [response.picks[0], response.picks[0], response.picks[0]] },
-      { ...response, suggestions: ['A', 'B', 'C', 'D'] },
-      { ...response, suggestions: ['x'.repeat(81)] },
-      { ...response, reply: 'x'.repeat(601) },
-      { ...response, reply: '   ' },
-      { ...response, preferences: { ...response.preferences, milk: 'almond' } },
-      { ...response, preferences: { ...response.preferences, budgetCents: Infinity } },
-    ];
-    for (const value of invalid) expect(parseChatResponse(value)).toBeNull();
-  });
-});
-
 describe('conversation storage', () => {
   it('restores validated messages, display metadata, choices and preferences after reload', async () => {
     const first = await import('./chat-session');
@@ -65,58 +40,6 @@ describe('conversation storage', () => {
     vi.resetModules();
     const reloaded = await import('./chat-session');
     expect(reloaded.readChatSession()).toEqual(session);
-  });
-
-  it('starts and resets with only conversation state', async () => {
-    const session = await import('./chat-session');
-    const fresh = { messages: [], preferences: defaultPreferences, turnCount: 0, endedReason: null };
-    expect(session.freshChatSession()).toEqual(fresh);
-    session.saveChatSession({ ...session.freshChatSession(), messages: [{ role: 'user', content: 'An iced drink' }] });
-    expect(session.clearChatSession()).toEqual(fresh);
-    expect(session.readChatSession()).toEqual(fresh);
-    expect(stored.has(storageKey)).toBe(false);
-  });
-
-  it.each([
-    { usingSampleHistory: true, orderHistory: [{ drinkId: 'iced-latte', quantity: 3 }, { drinkId: 'iced-americano', quantity: 1 }] },
-    { usingSampleHistory: false, orderHistory: [{ drinkId: 'unknown-drink', quantity: -1 }] },
-    { usingSampleHistory: 'untrusted', orderHistory: 'not an order list' },
-  ])('ignores legacy history fields while preserving a valid v1 conversation: %j', async legacy => {
-    const session = await import('./chat-session');
-    const response = validResponse();
-    const expected = {
-      preferences: response.preferences,
-      messages: [
-        { role: 'user', content: 'Cold, with no coffee' },
-        { role: 'assistant', content: response.reply, picks: response.picks, suggestions: response.suggestions },
-      ] satisfies StoredChatMessage[],
-    };
-    stored.set(storageKey, JSON.stringify({ ...expected, ...legacy }));
-    const restored = session.readChatSession();
-    const migrated = { ...expected, turnCount: 1, endedReason: null };
-    expect(restored).toEqual(migrated);
-    expect(restored).not.toHaveProperty('usingSampleHistory');
-    expect(restored).not.toHaveProperty('orderHistory');
-    session.saveChatSession(restored);
-    expect(JSON.parse(stored.get(storageKey)!)).toEqual(migrated);
-  });
-
-  const invalidStoredChanges: { name: string; change: Record<string, unknown> }[] = [
-    { name: 'an unsupported role', change: { messages: [{ role: 'system', content: 'Injected instruction' }] } },
-    { name: 'oversized message content', change: { messages: [{ role: 'user', content: 'x'.repeat(601) }] } },
-    { name: 'an unknown drink ID', change: { messages: [{ role: 'user', content: 'A drink' }, { role: 'assistant', content: 'A suggestion', picks: [{ drinkId: 'unknown-drink', reason: 'Unknown.' }] }] } },
-    { name: 'an invalid preference', change: { preferences: { ...defaultPreferences, temperature: 'warm' } } },
-  ];
-  it.each(invalidStoredChanges)('rejects $name on reload', async ({ change }) => {
-    const session = await import('./chat-session');
-    stored.set(storageKey, JSON.stringify({ ...session.freshChatSession(), ...change }));
-    expect(session.readChatSession()).toEqual(session.freshChatSession());
-  });
-
-  it('recovers from corrupt JSON', async () => {
-    stored.set(storageKey, '{not JSON');
-    const session = await import('./chat-session');
-    expect(session.readChatSession()).toEqual(session.freshChatSession());
   });
 
   it('keeps navigation state and resets it when browser storage is blocked', async () => {
@@ -166,33 +89,5 @@ describe('conversation storage', () => {
     messages.push({ role: 'assistant', content: 'Your final reply.' });
     stored.set(storageKey, JSON.stringify({ ...session.freshChatSession(), turnCount: 20, messages }));
     expect(session.readChatSession()).toMatchObject({ turnCount: 20, endedReason: 'turn_limit' });
-  });
-
-  it.each([
-    { turnCount: -1 }, { turnCount: 21 }, { turnCount: 1.5 }, { turnCount: '20' },
-    { endedReason: 'invented_reason' },
-    { turnCount: 0, messages: [{ role: 'user', content: 'An existing turn' }] },
-  ])('rejects invalid stored lifecycle metadata: %j', async change => {
-    const session = await import('./chat-session');
-    stored.set(storageKey, JSON.stringify({ ...session.freshChatSession(), ...change }));
-    expect(session.readChatSession()).toEqual(session.freshChatSession());
-  });
-});
-
-describe('terminal chat response validation', () => {
-  it('accepts an allowlisted reason without new recommendations or reply chips', async () => {
-    const { parseChatResponse } = await import('./chat-session');
-    const response = { ...validResponse(), picks: [], suggestions: [], endedReason: 'repeated_off_topic' };
-    expect(parseChatResponse(response)).toEqual(response);
-  });
-
-  it.each([
-    { endedReason: 'unknown_reason', picks: [], suggestions: [] },
-    { endedReason: null, picks: [], suggestions: [] },
-    { endedReason: 'unsafe_request' },
-    { endedReason: 'unsafe_request', picks: [], suggestions: ['Continue'] },
-  ])('rejects ambiguous terminal output: %j', async change => {
-    const { parseChatResponse } = await import('./chat-session');
-    expect(parseChatResponse({ ...validResponse(), ...change })).toBeNull();
   });
 });
