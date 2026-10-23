@@ -87,6 +87,19 @@ to test the complete feedback drawer. Use port 4178 when running the chat setup.
 Refresh for a neutral vote. Preview uses memory only, sends no analytics and
 does not change saved votes, cart or chat.
 
+## Flows and wireframes
+
+Open [4177/#/wireframes](http://127.0.0.1:4177/#/wireframes) for the user flow.
+Select a node to open its interactive wireframe. The Wireframes view includes
+annotations, recovery scenes, an annotation toggle and a reset button.
+Use **Print / save PDF** for the current diagram or screen, or capture screenshots
+for the report. This documentation is separate from customer navigation.
+
+Examples use catalogue fixtures and in-memory state. They make no AI or analytics
+requests and do not change saved orders. Chat replies illustrate navigation only.
+Edit `src/wireframes/flow.ts` for diagram connections and annotations, and
+`src/wireframes/WireframeWorkbench.tsx` for the wireframe interactions.
+
 ## Deployment
 
 Only deploy when the team intends to update production. Git pushes and local

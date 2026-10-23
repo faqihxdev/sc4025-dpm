@@ -25,6 +25,9 @@ Open [127.0.0.1:4177](http://127.0.0.1:4177/). Browsing, guided recommendations
 and the cart need no credentials. See [app/README.md](app/README.md) for optional
 chat setup, tests and deployment. Real OpenAI calls use the key owner's credits.
 
+The [flow diagram and interactive wireframes](http://127.0.0.1:4177/#/wireframes)
+run separately from the customer app, with annotations and print layouts.
+
 If a private HTTPS clone fails, confirm that you accepted the invitation with
 the correct GitHub account. With GitHub CLI installed, configure Git access:
 
@@ -47,8 +50,8 @@ gh auth setup-git --hostname github.com
 
 The app uses React, TypeScript, Vite and Tailwind CSS. Cloudflare Pages hosts
 the frontend and server-side chat/analytics Functions. Secrets stay outside Git
-and browser assets. Broader research, design files, the report and slides are
-maintained separately.
+and browser assets. Flows and wireframes live in `app/src/wireframes/`. Broader
+research, the report and slides are maintained separately.
 
 ## Development scope
 
