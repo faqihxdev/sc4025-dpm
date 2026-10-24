@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="400" viewBox="0 0 1200 400" role="img" aria-labelledby="title desc">
+  <title id="title">Find My Drink architecture</title>
+  <desc id="desc">Cloudflare Pages serves the React frontend. The browser runs catalogue matching and the demo cart. Pages Functions validate chat requests for OpenAI and forward selected events and feedback to PostHog.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#527166"/>
+    </marker>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #173e33; }
+      .heading { font-size: 21px; font-weight: 700; }
+      .body { font-size: 16px; fill: #40594f; }
+      .label { font-size: 14px; fill: #527166; }
+      .node { fill: #fff; stroke: #c5d5ca; stroke-width: 1.5; }
+      .accent { fill: #eaf2ed; stroke: #c5d5ca; stroke-width: 1.5; }
+      .connector { fill: none; stroke: #527166; stroke-width: 2; stroke-linejoin: round; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <rect width="1200" height="400" rx="20" fill="#fbfcfa"/>
+
+  <path class="connector" marker-start="url(#arrow)" d="M 348 200 H 442"/>
+  <text class="label" x="395" y="184" text-anchor="middle">HTTPS</text>
+  <path class="connector" d="M 780 160 H 840 V 100 H 892"/>
+  <path class="connector" d="M 780 240 H 840 V 300 H 892"/>
+
+  <rect class="accent" x="40" y="120" width="300" height="160" rx="12"/>
+  <text class="heading" x="64" y="166">Browser</text>
+  <text class="body" x="64" y="198">React · TypeScript</text>
+  <text class="label" x="64" y="230">Catalogue · cart · session state</text>
+
+  <rect class="node" x="450" y="120" width="330" height="160" rx="12"/>
+  <text class="heading" x="474" y="166">Cloudflare Pages</text>
+  <text class="body" x="474" y="198">Static app + Pages Functions</text>
+  <text class="label" x="474" y="230">/api/chat · /api/events</text>
+
+  <rect class="accent" x="900" y="48" width="260" height="104" rx="12"/>
+  <text class="heading" x="924" y="88">OpenAI</text>
+  <text class="body" x="924" y="118">Drink chat</text>
+
+  <rect class="accent" x="900" y="248" width="260" height="104" rx="12"/>
+  <text class="heading" x="924" y="288">PostHog</text>
+  <text class="body" x="924" y="318">Analytics + feedback</text>
+</svg>
