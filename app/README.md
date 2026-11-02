@@ -103,8 +103,9 @@ Edit `src/wireframes/flow.ts` for diagram connections and annotations, and
 ## Deployment
 
 Production requires a six-digit access code and a student-concept acknowledgement.
-The sharing link prefills a visible six-digit code through `?c=…` and opens the
-notice immediately. Visitors acknowledge the unofficial student prototype with
+The sharing link supplies a six-digit code through `?c=…`. After server verification,
+the field becomes an **Access code** summary with a **Correct** badge. The lock
+favicon identifies the access screen. Visitors acknowledge the unofficial student prototype with
 a checkbox, then select **Enter prototype**. Without a code link, visitors enter
 the code and continue to the notice first.
 A signed, host-only cookie lasts seven days. All public routes,
