@@ -53,7 +53,7 @@ function screen(error = '', status = 200): Response {
   const nonce = base64url(crypto.getRandomValues(new Uint8Array(18)));
   const response = protect(new Response(accessPage(nonce, error), { status, headers: {
     'content-type': 'text/html; charset=utf-8',
-    'content-security-policy': `default-src 'none'; connect-src 'self'; script-src 'nonce-${nonce}'; style-src 'nonce-${nonce}'; form-action 'self'; base-uri 'none'; frame-ancestors 'none'`,
+    'content-security-policy': `default-src 'none'; img-src data:; connect-src 'self'; script-src 'nonce-${nonce}'; style-src 'nonce-${nonce}'; form-action 'self'; base-uri 'none'; frame-ancestors 'none'`,
   } }));
   // Keep the form's Origin header intact while suppressing external referrers.
   response.headers.set('referrer-policy', 'same-origin');
