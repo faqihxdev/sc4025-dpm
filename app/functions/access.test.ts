@@ -87,6 +87,24 @@ describe('private prototype boundary', () => {
     expect(response.headers.get('set-cookie')).toBeNull();
   });
 
+  it('checks an existing session without granting access from a shared query code', async () => {
+    expect((await run(new Request(`${ORIGIN}/_access/session?c=${CODE}`))).status).toBe(401);
+    const { cookie } = await session();
+    const response = await run(new Request(`${ORIGIN}/_access/session`, { headers: { cookie } }));
+    expect(response.status).toBe(204);
+    expect(response.headers.get('set-cookie')).toBeNull();
+    expect(next).not.toHaveBeenCalled();
+  });
+
+  it('expires only the access cookie on same-origin logout and rejects cross-site logout', async () => {
+    const response = await run(new Request(`${ORIGIN}/_access/logout`, { method: 'POST', headers: { origin: ORIGIN } }));
+    expect(response.status).toBe(204);
+    expect(response.headers.get('set-cookie')).toBe('__Host-fmd-access=; Path=/; Secure; HttpOnly; SameSite=Strict; Max-Age=0');
+    expect((await run(new Request(`${ORIGIN}/_access/logout`, { method: 'POST', headers: { origin: 'https://other.example' } }))).status).toBe(403);
+    expect((await run(new Request(`${ORIGIN}/_access/logout`))).status).toBe(405);
+    expect(next).not.toHaveBeenCalled();
+  });
+
   it('temporarily blocks repeated incorrect guesses from one address', async () => {
     vi.useFakeTimers();
     vi.setSystemTime(new Date('2026-11-02T12:00:00Z'));

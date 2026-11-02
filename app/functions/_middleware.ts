@@ -53,7 +53,7 @@ function screen(error = '', status = 200): Response {
   const nonce = base64url(crypto.getRandomValues(new Uint8Array(18)));
   const response = protect(new Response(accessPage(nonce, error), { status, headers: {
     'content-type': 'text/html; charset=utf-8',
-    'content-security-policy': `default-src 'none'; script-src 'nonce-${nonce}'; style-src 'nonce-${nonce}'; form-action 'self'; base-uri 'none'; frame-ancestors 'none'`,
+    'content-security-policy': `default-src 'none'; connect-src 'self'; script-src 'nonce-${nonce}'; style-src 'nonce-${nonce}'; form-action 'self'; base-uri 'none'; frame-ancestors 'none'`,
   } }));
   // Keep the form's Origin header intact while suppressing external referrers.
   response.headers.set('referrer-policy', 'same-origin');
@@ -101,6 +101,19 @@ export async function onRequest({ request, env, next }: AccessContext): Promise<
   const secret = env.DEMO_SESSION_SECRET?.trim();
   if (!code || !/^\d{6}$/.test(code) || !secret || secret.length < 32) return screen('Access is unavailable.', 503);
   const now = Math.floor(Date.now() / 1000);
+
+  if (url.pathname === '/_access/session') {
+    if (request.method !== 'GET') return denied(405);
+    return await validSession(request, code, secret, now) ? protect(new Response(null, { status: 204 })) : denied();
+  }
+
+  if (url.pathname === '/_access/logout') {
+    if (request.method !== 'POST') return denied(405);
+    if (request.headers.get('origin') !== url.origin || request.headers.get('sec-fetch-site') === 'cross-site') return denied(403);
+    return protect(new Response(null, { status: 204, headers: {
+      'set-cookie': `${COOKIE}=; Path=/; Secure; HttpOnly; SameSite=Strict; Max-Age=0`,
+    } }));
+  }
 
   if (url.pathname === '/_access') {
     if (request.method !== 'POST') return denied(405);

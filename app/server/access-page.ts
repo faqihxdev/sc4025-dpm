@@ -16,6 +16,9 @@ const url=new URL(location.href),prefill=url.searchParams.get('c');
 if(prefill&&/^[0-9]{6}$/.test(prefill))code.value=prefill;
 if(url.searchParams.has('c')){url.searchParams.delete('c');history.replaceState(null,'',url.pathname+url.search+url.hash)}
 document.getElementById('returnTo').value=url.pathname+url.search+url.hash;
+// Strict cookies are omitted on the first navigation from another site.
+// This same-origin check recovers an existing session without accepting the code.
+fetch('/_access/session',{credentials:'same-origin',cache:'no-store'}).then(response=>{if(response.status===204)location.replace(url.pathname+url.search+url.hash)}).catch(()=>{});
 form.addEventListener('submit',event=>{if(notice.hidden){event.preventDefault();notice.hidden=false;ack.required=true;next.hidden=true;ack.focus()}else if(!ack.checked){event.preventDefault();ack.focus()}else{enter.disabled=true}});
 code.addEventListener('input',()=>{notice.hidden=true;ack.checked=false;ack.required=false;enter.disabled=true;next.hidden=false});
 ack.addEventListener('change',()=>{enter.disabled=!ack.checked});

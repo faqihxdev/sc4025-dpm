@@ -269,6 +269,7 @@ img { display: block; }
 .about-brand { display: flex; gap: 13px; align-items: center; margin-bottom: 20px; }
 .about-brand h3 { font-size: 22px; font-weight: 650; }
 .sheet-content .about-credit { margin-top: 20px; }
+.about-actions { display: flex; flex-wrap: wrap; gap: 12px; }
 .store-symbol { display: flex; width: 66px; height: 66px; border-radius: 50%; align-items: center; justify-content: center; background: #eff7f1; color: var(--green); margin-bottom: 16px; }
 .sheet-content > h3 { font-size: 20px; margin-bottom: 9px; font-weight: 600; }
 .store-info { display: flex; align-items: center; gap: 9px; padding: 15px; background: #f3f7f4; font-size: 12px; margin: 0 0 18px; border-radius: 6px; color: var(--house); }
