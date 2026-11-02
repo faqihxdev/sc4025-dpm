@@ -102,6 +102,27 @@ Edit `src/wireframes/flow.ts` for diagram connections and annotations, and
 
 ## Deployment
 
+Production requires a six-digit access code and a student-concept acknowledgement.
+The sharing link prefills the code through `?c=…`; it grants no access until the
+visitor confirms. A signed, host-only cookie lasts seven days. All public routes,
+including images and APIs, require this cookie and use private, non-stored responses.
+Keep sharing links and real codes out of Git and public repository metadata.
+
+Set `DEMO_ACCESS_CODE` and a separate random `DEMO_SESSION_SECRET` of at least
+32 characters in the ignored root `.env`. Upload each production secret from `app/`:
+
+```sh
+node scripts/deploy-chat-secret.mjs DEMO_ACCESS_CODE
+node scripts/deploy-chat-secret.mjs DEMO_SESSION_SECRET
+```
+
+Rotating either secret invalidates existing sessions. Incorrect guesses are
+limited to five per address per 15 minutes within each Function isolate. This is
+a lightweight shared-code gate; the attempt limit is not global across isolates.
+Set Pages **Settings > Runtime > Fail open/closed** to **Fail closed** and remove
+older unprotected deployments. Requests to static files now count as Functions
+requests. Local HTTP development on loopback stays ungated.
+
 Only deploy when the team intends to update production. Git pushes and local
 edits do not publish the site automatically. Cloudflare uses the existing Pages
 project `fmd`; run from `app/`:
