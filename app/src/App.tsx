@@ -95,6 +95,7 @@ export default function App() {
   const [state, setState] = useState(() => { const saved = readSession(); return { ...saved, preferences: normalizeFinderPreferences(saved.preferences) }; });
   const [route, navigate, direction, replaceRoute] = useRoute();
   const [panel, setPanel] = useState<'settings' | 'store' | 'about' | null>(null);
+  const [loggingOut, setLoggingOut] = useState(false);
   const [cartEdit, setCartEdit] = useState<CartItem | null>(null);
   const cartEditFocus = useRef<string | null>(null);
   const [chatAddDrink, setChatAddDrink] = useState<Drink | null>(null);
@@ -405,7 +406,14 @@ export default function App() {
         <p>PostHog records visits, approximate country, feature use and optional feedback. No recordings or ordinary chat transcripts. Chats closed for misuse may save the last three user messages for review, with obvious contact details and keys redacted.</p>
         <label className="stock-row"><span>Usage analytics</span><input type="checkbox" checked={analyticsEnabled} disabled={feedbackPreview} onChange={event => analytics.setEnabled(event.target.checked)} /></label>
         <p className="helper-copy">Browser privacy settings are respected. Your feedback choice is remembered on this device.</p>
-        <Button secondary onClick={openFeedback}>Give feedback</Button>
+        <div className="about-actions"><Button secondary onClick={openFeedback}>Give feedback</Button>{window.location.protocol === 'https:' && <Button secondary disabled={loggingOut} onClick={async () => {
+          setLoggingOut(true);
+          try {
+            const response = await fetch('/_access/logout', { method: 'POST', credentials: 'same-origin', headers: { 'content-type': 'application/json' } });
+            if (!response.ok) throw new Error('Logout failed');
+            window.location.replace('/');
+          } catch { setLoggingOut(false); notify('Could not log out. Try again.'); }
+        }}>{loggingOut ? 'Logging out…' : 'Log out'}</Button>}</div>
         <p className="about-credit">Starbucks owns its photos and logo. Manrope is an open-licensed substitute for the brand font.</p>
       </>}
       {panel === 'store' && <><div className="store-symbol"><Icon name="pin" size={32} /></div><h3>Demo store</h3><div className="store-info"><Icon name="clock" size={20} /><span>Simulated availability, not live stock.</span></div><p>No pickup or real order is placed.</p><Button onClick={() => { setPanel(null); navigate('/menu'); }}>View the menu</Button></>}

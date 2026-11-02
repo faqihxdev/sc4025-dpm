@@ -107,6 +107,9 @@ The sharing link prefills the code through `?c=…`; it grants no access until t
 visitor confirms. A signed, host-only cookie lasts seven days. All public routes,
 including images and APIs, require this cookie and use private, non-stored responses.
 Keep sharing links and real codes out of Git and public repository metadata.
+Existing sessions reopen the app when following the sharing link from another
+site. **About this concept > Log out** removes the access cookie and returns to
+the empty code screen, preserving the saved demo cart and preferences.
 
 Set `DEMO_ACCESS_CODE` and a separate random `DEMO_SESSION_SECRET` of at least
 32 characters in the ignored root `.env`. Upload each production secret from `app/`:
