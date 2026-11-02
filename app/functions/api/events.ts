@@ -16,7 +16,7 @@ const RATE_WINDOW_MS = 60_000;
 const MAX_REQUESTS_PER_VISITOR = 60;
 const MAX_GLOBAL_REQUESTS = 600;
 const MAX_TRACKED_VISITORS = 1_000;
-const PRODUCTION_HOSTS = new Set(['starbucks.utf.sh', 'starbucks-drink-finder.pages.dev']);
+const PRODUCTION_HOSTS = new Set(['sbx.utf.sh', 'fmd-a5f.pages.dev']);
 const LOCAL_HOSTS = new Set(['127.0.0.1', 'localhost', '[::1]']);
 
 function response(status: number, error?: string, extraHeaders: Record<string, string> = {}): Response {

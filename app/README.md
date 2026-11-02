@@ -4,7 +4,7 @@ Starbucks-inspired student prototype built with React, TypeScript, Vite and
 Tailwind CSS. Browse drinks, answer preferences, chat for recommendations and
 choose sizes for a demo cart.
 
-Live demo: [starbucks.utf.sh](https://starbucks.utf.sh/).
+Live demo: [sbx.utf.sh](https://sbx.utf.sh/).
 
 ## Local setup
 
@@ -104,7 +104,7 @@ Edit `src/wireframes/flow.ts` for diagram connections and annotations, and
 
 Only deploy when the team intends to update production. Git pushes and local
 edits do not publish the site automatically. Cloudflare uses the existing Pages
-project `starbucks-drink-finder`; run from `app/`:
+project `fmd`; run from `app/`:
 
 ```sh
 npx --yes wrangler@4.146.0 login
@@ -112,7 +112,7 @@ npm test
 npm run build
 npm run check:size
 npm run test:e2e
-npx --yes wrangler@4.146.0 pages deploy dist --project-name starbucks-drink-finder --branch main
+npx --yes wrangler@4.146.0 pages deploy dist --project-name fmd --branch main
 ```
 
 Resolve or explicitly review failed checks before running the deploy command.

@@ -1,17 +1,17 @@
 # Conversational discovery on Cloudflare
 
-Updated on 3 October 2026. Deployment `a4f1d870` serves `starbucks.utf.sh/api/chat`.
+Updated on 2 November 2026. Chat is served at `sbx.utf.sh/api/chat`.
 The selected provider is OpenAI, using `gpt-6-luna` with medium reasoning.
 
 ## Current app
 
 The React/Vite app keeps catalogue, stock and cart state locally. Its optional chat now has a Pages Function backend, with no database or Starbucks account integration.
-The existing Pages Direct Upload project is `starbucks-drink-finder`, with production branch `main` and custom domain `starbucks.utf.sh`.
+The existing Pages Direct Upload project is `fmd`, with production branch `main` and custom domain `sbx.utf.sh`.
 
 ## Request path
 
 ```text
-Chat UI on starbucks.utf.sh
+Chat UI on sbx.utf.sh
   -> POST /api/chat
   -> Pages Function running on Cloudflare Workers
   -> OpenAI Responses API, gpt-6-luna with medium reasoning
@@ -45,8 +45,8 @@ The UI cap is not server-side authentication or a global spending control.
 
 ## Where the key lives
 
-`OPENAI_API_KEY` was installed as an encrypted production Pages secret before
-deployment `422371dd` and retained for `a4f1d870`. Function code reads `context.env.OPENAI_API_KEY`.
+`OPENAI_API_KEY` is an encrypted production Pages secret on project `fmd`.
+Function code reads `context.env.OPENAI_API_KEY`.
 The local installer `app/scripts/deploy-chat-secret.mjs` reads only this key from
 the ignored parent `.env` and sends it through Wrangler's stdin, never a command
 argument or temporary file. No preview-environment secret was configured.
@@ -75,7 +75,7 @@ npm run build
 npm run check:size
 # Only for initial secret setup or rotation
 node scripts/deploy-chat-secret.mjs
-npx --yes wrangler@4.146.0 pages deploy dist --project-name starbucks-drink-finder --branch main --commit-dirty=true
+npx --yes wrangler@4.146.0 pages deploy dist --project-name fmd --branch main --commit-dirty=true
 ```
 
 `app/wrangler.jsonc` pins the existing Pages project, `./dist` and the

@@ -11,7 +11,7 @@ const store = () => {
 
 function fixture() {
   let counter = 1;
-  const state = { hostname: 'starbucks.utf.sh', visible: true, privacy: false, width: 390, referrer: '' };
+  const state = { hostname: 'sbx.utf.sh', visible: true, privacy: false, width: 390, referrer: '' };
   const storage = store();
   const preferenceStorage = store();
   const listeners = { activity: new Set<() => void>(), visibility: new Set<() => void>(), pagehide: new Set<() => void>(), preference: new Set<() => void>() };
@@ -45,7 +45,7 @@ beforeEach(() => { vi.useFakeTimers(); vi.setSystemTime(new Date('2026-10-03T00:
 afterEach(() => { vi.useRealTimers(); });
 
 describe('explicit telemetry and privacy', () => {
-  it.each(['localhost', '127.0.0.1', 'a4f1d870.starbucks-drink-finder.pages.dev', 'starbucks.utf.sh.example.com'])('does not send from %s', async hostname => {
+  it.each(['localhost', '127.0.0.1', 'a4f1d870.fmd-a5f.pages.dev', 'sbx.utf.sh.example.com'])('does not send from %s', async hostname => {
     const f = fixture();
     f.state.hostname = hostname;
     const stop = f.client.start();

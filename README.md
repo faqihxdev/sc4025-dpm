@@ -7,7 +7,7 @@ Built for NTU SC4025 Digital Product Management. The project focuses on improvin
 an existing product through product discovery, user flows and UI/UX design. The
 working app demonstrates those design choices.
 
-[Live demo](https://starbucks.utf.sh/) · [Setup & deployment](app/README.md) ·
+[Live demo](https://sbx.utf.sh/) · [Setup & deployment](app/README.md) ·
 [Software verification](tests/README.md)
 
 ![Find My Drink menu, explained drink picks and Help me choose chat with a sample conversation](docs/images/app-overview.png)
