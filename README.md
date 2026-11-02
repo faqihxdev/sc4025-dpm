@@ -10,6 +10,8 @@ working app demonstrates those design choices.
 [Live demo](https://sbx.utf.sh/) · [Setup & deployment](app/README.md) ·
 [Software verification](tests/README.md)
 
+The demo requires the team's access code and a student-concept acknowledgement.
+
 ![Find My Drink menu, explained drink picks and Help me choose chat with a sample conversation](docs/images/app-overview.png)
 
 ## Architecture
