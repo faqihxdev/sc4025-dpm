@@ -123,6 +123,10 @@ Set Pages **Settings > Runtime > Fail open/closed** to **Fail closed** and remov
 older unprotected deployments. Requests to static files now count as Functions
 requests. Local HTTP development on loopback stays ungated.
 
+For the custom domain, keep the cache-bypass rule matching `sbx.utf.sh`. Clear
+that hostname's older public cache when adding the gate; cached zone responses
+can otherwise be served before Pages Functions run.
+
 Only deploy when the team intends to update production. Git pushes and local
 edits do not publish the site automatically. Cloudflare uses the existing Pages
 project `fmd`; run from `app/`:
