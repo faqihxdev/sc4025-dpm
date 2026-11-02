@@ -96,6 +96,17 @@ describe('private prototype boundary', () => {
     expect(next).not.toHaveBeenCalled();
   });
 
+  it('confirms a correct code without issuing a session or bypassing the acknowledgement', async () => {
+    for (const [code, status] of [[CODE, 204], ['000000', 403]] as const) {
+      const response = await run(new Request(`${ORIGIN}/_access/check`, { method: 'POST', headers: { origin: ORIGIN, 'content-type': 'application/x-www-form-urlencoded', 'cf-connecting-ip': '192.0.2.76' }, body: new URLSearchParams({ code }) }));
+      expect(response.status).toBe(status);
+      expect(response.headers.get('set-cookie')).toBeNull();
+      expect(response.headers.get('cache-control')).toBe('private, no-store');
+    }
+    expect((await run(entry({ acknowledged: '' }))).status).toBe(403);
+    expect(next).not.toHaveBeenCalled();
+  });
+
   it('expires only the access cookie on same-origin logout and rejects cross-site logout', async () => {
     const response = await run(new Request(`${ORIGIN}/_access/logout`, { method: 'POST', headers: { origin: ORIGIN } }));
     expect(response.status).toBe(204);
@@ -108,7 +119,7 @@ describe('private prototype boundary', () => {
   it('temporarily blocks repeated incorrect guesses from one address', async () => {
     vi.useFakeTimers();
     vi.setSystemTime(new Date('2026-11-02T12:00:00Z'));
-    const attempt = () => { const request = entry({ code: '000000' }); request.headers.set('cf-connecting-ip', '192.0.2.75'); return run(request); };
+    const attempt = () => run(new Request(`${ORIGIN}/_access/check`, { method: 'POST', headers: { origin: ORIGIN, 'content-type': 'application/x-www-form-urlencoded', 'cf-connecting-ip': '192.0.2.75' }, body: new URLSearchParams({ code: '000000' }) }));
     for (let i = 0; i < 5; i++) expect((await attempt()).status).toBe(403);
     const limited = await attempt();
     expect(limited.status).toBe(429);

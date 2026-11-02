@@ -115,7 +115,9 @@ export async function onRequest({ request, env, next }: AccessContext): Promise<
     } }));
   }
 
-  if (url.pathname === '/_access') {
+  if (url.pathname === '/_access' || url.pathname === '/_access/check') {
+    const checking = url.pathname === '/_access/check';
+    const failure = (error: string, status: number) => checking ? protect(Response.json({ error }, { status })) : screen(error, status);
     if (request.method !== 'POST') return denied(405);
     if (request.headers.get('origin') !== url.origin || request.headers.get('sec-fetch-site') === 'cross-site') return denied(403);
     if (!request.headers.get('content-type')?.startsWith('application/x-www-form-urlencoded')) return denied(400);
@@ -126,21 +128,22 @@ export async function onRequest({ request, env, next }: AccessContext): Promise<
     const attempts = failures.get(address);
     if ((attempts && attempts.count >= 5) || (!attempts && failures.size >= 1000)) {
       const wait = Math.max(1, (attempts?.until ?? now + ATTEMPT_WINDOW) - now);
-      const response = screen(`Try again in ${Math.ceil(wait / 60)} minutes.`, 429);
+      const response = failure(`Try again in ${Math.ceil(wait / 60)} minutes.`, 429);
       response.headers.set('retry-after', String(wait));
       return response;
     }
     const supplied = form.get('code')?.trim();
-    if (!supplied || supplied.length > 128 || form.get('acknowledged') !== 'yes') return screen('Enter the code and confirm the notice.', 403);
+    if (!supplied || supplied.length > 128 || (!checking && form.get('acknowledged') !== 'yes')) return failure('Enter the code and confirm the notice.', 403);
     const expected = new Uint8Array(await crypto.subtle.digest('SHA-256', encoder.encode(code)));
     const actual = new Uint8Array(await crypto.subtle.digest('SHA-256', encoder.encode(supplied)));
     let difference = 0;
     for (let i = 0; i < expected.length; i++) difference |= expected[i] ^ actual[i];
     if (difference) {
       failures.set(address, { count: (attempts?.count ?? 0) + 1, until: attempts?.until ?? now + ATTEMPT_WINDOW });
-      return screen('Check the code and try again.', 403);
+      return failure('Check the code and try again.', 403);
     }
     failures.delete(address);
+    if (checking) return protect(new Response(null, { status: 204 }));
     const expires = now + SESSION_SECONDS;
     const signature = base64url(new Uint8Array(await crypto.subtle.sign('HMAC', await signingKey(secret), signedMessage(url.origin, expires, code))));
     return protect(new Response(null, { status: 303, headers: {
