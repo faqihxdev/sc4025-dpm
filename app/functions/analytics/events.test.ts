@@ -13,7 +13,7 @@ function batch(name = 'visit_started', properties: unknown = { referral_source: 
   return { sessionId: SESSION, events: [{ id: EVENT, name, properties, timestamp: '2026-10-03T07:00:00.000Z' }] };
 }
 
-function request(body: unknown = batch(), headers: Record<string, string> = {}, url = 'https://starbucks.utf.sh/api/events') {
+function request(body: unknown = batch(), headers: Record<string, string> = {}, url = 'https://sbx.utf.sh/api/events') {
   return new Request(url, {
     method: 'POST',
     headers: { 'content-type': 'application/json', origin: new URL(url).origin, 'cf-connecting-ip': '192.0.2.5', ...headers },
@@ -77,7 +77,7 @@ describe('closed-chat review redaction', () => {
 describe('first-party event handler', () => {
   it('forwards only validated events, server country and privacy flags', async () => {
     const fetcher = successFetcher();
-    const incoming = request(batch('chat_ended', { reason: 'security_misuse', turn_count: 1, conversation_id: FLOW }), { referer: 'https://starbucks.utf.sh/?email=private' });
+    const incoming = request(batch('chat_ended', { reason: 'security_misuse', turn_count: 1, conversation_id: FLOW }), { referer: 'https://sbx.utf.sh/?email=private' });
     Object.defineProperty(incoming, 'cf', { value: { country: 'SG', city: 'Singapore', latitude: 1.3, longitude: 103.8 } });
     const result = await createAnalyticsHandler(fetcher)({ request: incoming, env: ENV });
     expect(result.status).toBe(204);
@@ -123,8 +123,8 @@ describe('first-party event handler', () => {
     const fetcher = successFetcher();
     const handler = createAnalyticsHandler(fetcher);
     expect((await handler({ request: request(batch(), { 'content-length': '12289' }), env: ENV })).status).toBe(413);
-    const incoming = new Request('https://starbucks.utf.sh/api/events', {
-      method: 'POST', headers: { 'content-type': 'application/json', origin: 'https://starbucks.utf.sh' }, body: ' '.repeat(12_289),
+    const incoming = new Request('https://sbx.utf.sh/api/events', {
+      method: 'POST', headers: { 'content-type': 'application/json', origin: 'https://sbx.utf.sh' }, body: ' '.repeat(12_289),
     });
     expect((await handler({ request: incoming, env: ENV })).status).toBe(413);
     expect(fetcher).not.toHaveBeenCalled();

@@ -1,6 +1,6 @@
 # Goal-based drink finder PRD
 
-Status: The agreed browser-only MVP is implemented and deployed on 2 October 2026 at [starbucks.utf.sh](https://starbucks.utf.sh/), with a Starbucks Singapore-inspired phone interface, catalogue, finder, recipe details and working demo cart. Catalogue research is recorded; exact size-specific prices remain unverified and use labelled demo fixtures. Software verification is recorded in `tests/README.md`. User validation and wireframe documentation remain pending.
+Status: The agreed browser-only MVP was first deployed on 2 October 2026. The current demo is at [sbx.utf.sh](https://sbx.utf.sh/), with a Starbucks Singapore-inspired phone interface, catalogue, finder, recipe details and working demo cart. Catalogue research is recorded; exact size-specific prices remain unverified and use labelled demo fixtures. Software verification is recorded in `tests/README.md`. User validation and wireframe documentation remain pending.
 
 ## Confirmed direction
 
@@ -148,7 +148,7 @@ Before coding the matching rules, prepare representative test fixtures for each 
 | Catalogue and matching | Versioned typed data in the repo, shared by all routes; pure TypeScript filter/ranking logic. |
 | Backend/database | None for this scope. The catalogue, prepared stock and demo cart run in the browser. |
 | State | React state plus `sessionStorage` for answers and cart. Include a demo reset; handle unavailable storage gracefully. No account or personal details. |
-| Hosting | Cloudflare Pages Direct Upload, project `starbucks-drink-finder`, with HTTPS at `starbucks.utf.sh`. A dedicated CNAME leaves the existing wildcard and other hosted sites unchanged. |
+| Hosting | Cloudflare Pages Direct Upload, project `fmd`, with HTTPS at `sbx.utf.sh`. A dedicated CNAME leaves the existing wildcard and other hosted sites unchanged. |
 
 Recompute recommendations from current answers and catalogue data. Store recipe references and quantities rather than a second independent catalogue in browser storage; check saved state when restoring it. Pinned Vitest and Playwright packages cover the rule/session checks and critical browser flows for AC01-AC09; actual results are recorded in `tests/README.md`.
 

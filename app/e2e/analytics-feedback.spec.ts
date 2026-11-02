@@ -4,7 +4,7 @@ import type { AnalyticsEnvelope } from '../src/analytics/client';
 import type { ChatRequest, ChatResponse } from '../src/chat/contracts';
 import { defaultPreferences } from '../src/domain/catalogue';
 
-const productionOrigin = 'https://starbucks.utf.sh';
+const productionOrigin = 'https://sbx.utf.sh';
 const feedbackKey = 'sc4025-drink-feedback:v1';
 const feedbackDialog = (page: Page) => page.getByRole('dialog', { name: 'Your feedback', exact: true });
 const feedbackThanks = (page: Page) => page.locator('.feedback-thanks');

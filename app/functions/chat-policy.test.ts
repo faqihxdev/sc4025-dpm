@@ -23,7 +23,7 @@ function chatResponse(overrides: Partial<ChatResponse> = {}): ChatResponse {
 }
 
 function request(body: unknown = chatRequest(), headers: Record<string, string> = {}): Request {
-  return new Request('https://starbucks.utf.sh/api/chat', {
+  return new Request('https://sbx.utf.sh/api/chat', {
     method: 'POST',
     headers: { 'content-type': 'application/json', 'cf-connecting-ip': '192.0.2.5', ...headers },
     body: JSON.stringify(body),

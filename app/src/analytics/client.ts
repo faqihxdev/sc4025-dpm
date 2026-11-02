@@ -38,7 +38,7 @@ export interface AnalyticsEnvironment {
 const SESSION_KEY = 'sc4025-analytics-session:v1';
 const OPT_OUT_KEY = 'sc4025-analytics-opt-out:v1';
 const SOURCES: AnalyticsSource[] = ['menu', 'quick_choices', 'chat'];
-const PRODUCTION_HOSTS = ['starbucks.utf.sh', 'starbucks-drink-finder.pages.dev'];
+const PRODUCTION_HOSTS = ['sbx.utf.sh', 'fmd-a5f.pages.dev'];
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 const MAX_QUEUE = 40;
 const MAX_ENVELOPE_BYTES = 12_288;

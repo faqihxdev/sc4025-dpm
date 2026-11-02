@@ -113,16 +113,16 @@ Once a message is sent, the transcript keeps its normal top-aligned layout.
 
 ## Deployment
 
-Live at [starbucks.utf.sh](https://starbucks.utf.sh/). The latest production update
-was published on 4 October 2026 through Wrangler to the existing Direct Upload
-project `starbucks-drink-finder`, production branch `main`.
-The fallback hostname is [starbucks-drink-finder.pages.dev](https://starbucks-drink-finder.pages.dev/).
+Live at [sbx.utf.sh](https://sbx.utf.sh/). The app moved on 2 November 2026
+through Wrangler to the Direct Upload
+project `fmd`, production branch `main`.
+The fallback hostname is [fmd-a5f.pages.dev](https://fmd-a5f.pages.dev/).
 Cloudflare serves the static client over HTTPS and `/api/chat` and `/api/events`
 through Pages Functions. Provider keys are encrypted production secrets, not browser assets.
-No paid Cloudflare upgrade or DNS changes were made for this update.
+The migration uses the existing Cloudflare plan and PostHog project.
 
-The dedicated proxied CNAME `starbucks.utf.sh` points to
-`starbucks-drink-finder.pages.dev`. The existing wildcard and other subdomain
+The dedicated proxied CNAME `sbx.utf.sh` points to
+`fmd-a5f.pages.dev`. The existing wildcard and other subdomain
 records stay unchanged, so those sites remain on their current servers.
 
 To publish an update from `app/`:
@@ -130,7 +130,7 @@ To publish an update from `app/`:
 ```powershell
 npm run build
 npm run check:size
-npx --yes wrangler@4.146.0 pages deploy dist --project-name starbucks-drink-finder --branch main --commit-dirty=true
+npx --yes wrangler@4.146.0 pages deploy dist --project-name fmd --branch main --commit-dirty=true
 ```
 
 `wrangler.jsonc` pins the project, output directory and compatibility date.
@@ -313,7 +313,7 @@ The explicit `?feedback=preview` query opens a neutral drawer on load. Votes and
 comments are simulated in memory; it sends no analytics and changes no feedback
 storage or opt-out preference. Refresh to start neutral again. Remove the query
 to return to normal behavior. The same safe preview is available on the
-[live app](https://starbucks.utf.sh/?feedback=preview#/menu).
+[live app](https://sbx.utf.sh/?feedback=preview#/menu).
 
 Browser requests use the app's own `/api/events` endpoint; Cloudflare forwards
 validated events to PostHog. There is no vendor browser SDK or direct request to

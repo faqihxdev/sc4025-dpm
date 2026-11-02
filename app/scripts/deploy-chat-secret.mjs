@@ -10,7 +10,7 @@ const appDir = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 try {
   const key = parseEnv(await readFile(resolve(appDir, '../.env'), 'utf8')).OPENAI_API_KEY?.trim();
   if (!key || !/^sk-[A-Za-z0-9_-]+$/.test(key)) throw new Error('Missing server key.');
-  const args = ['--yes', 'wrangler@4.146.0', 'pages', 'secret', 'bulk', '--project-name', 'starbucks-drink-finder', '--env', 'production'];
+  const args = ['--yes', 'wrangler@4.146.0', 'pages', 'secret', 'bulk', '--project-name', 'fmd'];
   const windows = process.platform === 'win32';
   const child = spawn(windows ? 'cmd.exe' : 'npx', windows ? ['/d', '/s', '/c', `npx ${args.join(' ')}`] : args, {
     cwd: appDir, windowsHide: true, stdio: ['pipe', 'pipe', 'pipe'], env: { ...process.env, CI: 'true' },
