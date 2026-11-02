@@ -103,8 +103,11 @@ Edit `src/wireframes/flow.ts` for diagram connections and annotations, and
 ## Deployment
 
 Production requires a six-digit access code and a student-concept acknowledgement.
-The sharing link prefills the code through `?c=…`; it grants no access until the
-visitor confirms. A signed, host-only cookie lasts seven days. All public routes,
+The sharing link prefills a visible six-digit code through `?c=…` and opens the
+notice immediately. Visitors acknowledge the unofficial student prototype with
+a checkbox, then select **Enter prototype**. Without a code link, visitors enter
+the code and continue to the notice first.
+A signed, host-only cookie lasts seven days. All public routes,
 including images and APIs, require this cookie and use private, non-stored responses.
 Keep sharing links and real codes out of Git and public repository metadata.
 Existing sessions reopen the app when following the sharing link from another
